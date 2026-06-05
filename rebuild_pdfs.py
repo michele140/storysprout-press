@@ -51,15 +51,10 @@ def make_storybook(book_num, title, subtitle, img_dir, text_file, out_file, text
     
     # --- Front Cover ---
     place_image_safe(os.path.join(img_dir, 'front-cover.png'), 'cover')
-    c.setFillColorRGB(*cover_color)
-    c.setFont("Helvetica-Bold", 36)
-    c.drawCentredString(PW/2, PH - 100 - BLEED, title)
-    if subtitle:
-        c.setFont("Helvetica-Bold", 24)
-        c.drawCentredString(PW/2, PH - 140 - BLEED, subtitle)
-    c.setFont("Helvetica", 14)
+    # Cover already has title from illustrator — just add StorySprout Press branding
+    c.setFont("Helvetica", 12)
     c.setFillColorRGB(0.3, 0.3, 0.3)
-    c.drawCentredString(PW/2, PH - 175 - BLEED, "A StorySprout Press Book")
+    c.drawCentredString(PW/2, BLEED + 55, "A StorySprout Press Book")
     c.showPage()
     
     # --- Interior Pages ---
@@ -69,17 +64,45 @@ def make_storybook(book_num, title, subtitle, img_dir, text_file, out_file, text
             t = texts_dict[pn]
             # Text box at the bottom within safe area
             tx = BLEED + MARGIN + 15
-            ty = BLEED + MARGIN + 15
+            ty = BLEED + MARGIN + 22
             tw = IMG_W - 30
-            th = 70
+            font_size = 15
+            c.setFont("Helvetica", font_size)
+            line_h = font_size * 1.35
+            margin_x = 12
+            
+            # Wrap text to fit within box width
+            max_text_w = tw - margin_x * 2
+            words = t.split()
+            wrapped = []
+            cur_line = ''
+            for w in words:
+                test = cur_line + (' ' if cur_line else '') + w
+                if c.stringWidth(test, "Helvetica", font_size) <= max_text_w:
+                    cur_line = test
+                else:
+                    if cur_line:
+                        wrapped.append(cur_line)
+                    cur_line = w
+            if cur_line:
+                wrapped.append(cur_line)
+            
+            n = len(wrapped)
+            # Make box taller if more lines needed
+            th = max(80, n * line_h + 20)
+            ty = BLEED + MARGIN + 15  # reset y
+            
+            # Draw background box
             c.setFillColorRGB(1, 1, 1, alpha=0.85)
             c.roundRect(tx, ty, tw, th, 6, fill=1, stroke=0)
             c.setFillColorRGB(0.1, 0.1, 0.15)
-            c.setFont("Helvetica", 13)
-            lines = t.split('\n')
-            ly = ty + 55
-            for line in lines:
-                c.drawString(tx + 12, ly, line); ly -= 18
+            
+            # Center text block vertically in the box
+            box_center_y = ty + th / 2
+            first_y = box_center_y + (n - 1) * line_h / 2 - 2
+            cx = tx + tw / 2
+            for i, line in enumerate(wrapped):
+                c.drawCentredString(cx, first_y - i * line_h, line)
         # Page number
         if pn > 1:
             c.setFont("Helvetica", 9)
