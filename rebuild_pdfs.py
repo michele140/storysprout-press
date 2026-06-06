@@ -270,6 +270,34 @@ books.append({
     'texts': texts_b10, 'color': (0.3, 0.3, 0.6)
 })
 
+# ====== BIBLE SERIES ======
+
+# Bible Book 1: Noah's Big Boat
+texts_bible1 = build_texts_from_file('/home/team/shared/noahs-ark.md')
+texts_bible1['blurb'] = ("Follow Noah as he builds a big boat, fills it with\n"
+                         "animals two by two, and sets sail through a great\n"
+                         "rain. When a dove returns with an olive branch,\n"
+                         "the rainbow appears — God's promise of love.\n\nAges 2-6 | StorySprout Press")
+books.append({
+    'num': 101, 'out': '/home/team/shared/bible1-noah-kdp.pdf',
+    'title': "Noah's Big Boat", 'subtitle': 'A Bible Story for Little Ones',
+    'img_dir': '/home/team/shared/noahs-ark-illustrations',
+    'texts': texts_bible1, 'color': (0.8, 0.6, 0.1)
+})
+
+# Bible Book 2: David and the Giant
+texts_bible2 = build_texts_from_file('/home/team/shared/david-goliath.md')
+texts_bible2['blurb'] = ("David is a young shepherd who trusts God to help\n"
+                         "him face the friendly giant Goliath. With his sling\n"
+                         "and five smooth stones, David shows that with\n"
+                         "faith, anyone can be brave.\n\nAges 2-6 | StorySprout Press")
+books.append({
+    'num': 102, 'out': '/home/team/shared/bible2-david-kdp.pdf',
+    'title': 'David and the Giant', 'subtitle': '',
+    'img_dir': '/home/team/shared/david-goliath-illustrations',
+    'texts': texts_bible2, 'color': (0.6, 0.4, 0.2)
+})
+
 if __name__ == '__main__':
     for b in books:
         print(f"\nBuilding Book #{b['num']}: {b['title']}")
