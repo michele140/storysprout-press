@@ -244,6 +244,32 @@ books.append({
     'texts': texts_b8, 'color': (0.1, 0.6, 0.7)
 })
 
+# Book 9: Pip the Garden Gnome's Surprise
+texts_b9 = build_texts_from_file('/home/team/shared/gnomes-surprise.md')
+texts_b9['blurb'] = ("Meet Pip, a tiny garden gnome who secretly helps his\n"
+                     "forgetful gardener, Mr. McGregor. With Bella the\n"
+                     "Butterfly and Tiptoe the Mouse, Pip shows that the\n"
+                     "best gift is a surprise given from the heart.\n\nAges 2-6 | StorySprout Press")
+books.append({
+    'num': 9, 'out': '/home/team/shared/book9-gnome-kdp.pdf',
+    'title': 'Pip the Garden Gnome\'s Surprise', 'subtitle': '',
+    'img_dir': '/home/team/shared/gnome-illustrations',
+    'texts': texts_b9, 'color': (0.8, 0.2, 0.1)
+})
+
+# Book 10: The Moon Who Wanted to Play
+texts_b10 = build_texts_from_file('/home/team/shared/moon-wanted-to-play.md')
+texts_b10['blurb'] = ("Luna the Moon loves her job lighting the night sky,\n"
+                      "but she dreams of playing in the sunshine. When\n"
+                      "Sol the Sun lets her stay for a day, Luna discovers\n"
+                      "that the night is where she truly belongs.\n\nAges 2-6 | StorySprout Press")
+books.append({
+    'num': 10, 'out': '/home/team/shared/book10-moon-kdp.pdf',
+    'title': 'The Moon Who Wanted to Play', 'subtitle': '',
+    'img_dir': '/home/team/shared/moon-illustrations',
+    'texts': texts_b10, 'color': (0.3, 0.3, 0.6)
+})
+
 if __name__ == '__main__':
     for b in books:
         print(f"\nBuilding Book #{b['num']}: {b['title']}")
