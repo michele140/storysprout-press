@@ -111,15 +111,9 @@ def make_storybook(book_num, title, subtitle, img_dir, text_file, out_file, text
         c.showPage()
     
     # --- Back Cover ---
+    # Just place the back cover image — no text overlay to avoid overlapping
     place_image_safe(os.path.join(img_dir, 'back-cover.png'), 'back')
-    c.setFillColorRGB(0.2, 0.2, 0.2)
-    c.setFont("Helvetica-Bold", 16)
-    c.drawCentredString(PW/2, PH - 80 - BLEED, "About the Story")
-    blurb_lines = texts_dict.get('blurb', '').split('\n')
-    c.setFont("Helvetica", 11)
-    y = PH - 115 - BLEED
-    for line in blurb_lines:
-        c.drawCentredString(PW/2, y, line); y -= 16
+    # Small credit at very bottom
     c.setFont("Helvetica", 9)
     c.setFillColorRGB(0.5, 0.5, 0.5)
     c.drawCentredString(PW/2, BLEED + 50, "StorySprout Press")
