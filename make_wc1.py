@@ -19,7 +19,7 @@ def go():
     # More text per page - use taller box and smaller font for older readers
     texts={
         2:'The sun hadn\'t even finished waking up, but Alex was already wide awake! Today wasn\'t just any Saturday. Today was the day of the World Cup Match!\n\n"Alex, are you ready?" Dad called from the hallway.\n\n"I\'ve been ready since last year, Dad!" Alex shouted back, pulling on his lucky jersey.',
-        3:'As they drove down the long highway, Alex pressed his face against the window. There it was! MetLife Stadium.\n\nIt looked like a giant silver palace. Did you know MetLife is the biggest stadium in the NFL? It has over 82,000 seats! Alex wondered if he could count them all.',
+        3:'As they drove down the long highway, Alex pressed his face against the window. There it was! MetLife Stadium.\n\nIt looked like a giant silver palace. Did you know MetLife has over 82,000 seats? Alex wondered if he could count them all.',
         4:'As Alex stepped out of the car, he heard a deep, rumbling hum. It wasn\'t the wind — it was the stadium itself!\n\nMetLife was a friendly giant. He had big lights for eyes that glowed a warm yellow, and his skin was made of shimmering glass and metal.',
         5:'The giant stadium stretched out his goalpost arms to welcome everyone. Alex felt like he was walking into the heart of a friendly giant.\n\n"Welcome to the Meadowlands!" the giant seemed to whisper. Alex high-fived a silver panel. It felt cool and strong.',
         6:'Inside, the stadium was buzzing like a beehive! Fans from Argentina wore blue and white stripes, while fans from the USA wore red, white, and blue.\n\nThe air smelled like popcorn and excitement. Alex could hear music playing and people singing songs in different languages.',
@@ -35,7 +35,7 @@ def go():
         16:'Argentina kicked a powerful shot. *SWISH!* It went right into the corner of the net. Now the score was tied! Alex felt a little sad, but then he saw the players high-five each other.',
         17:'"That was a great goal," Dad said. "In soccer, we cheer for our team, but we also respect the other team. That\'s called sportsmanship." Alex began to clap for the great play too.',
         18:'The clock was ticking down. Only a few minutes left! The sun began to set, and the MetLife giant\'s silver skin turned orange and gold. He turned on his light-bulb eyes to help everyone see.',
-        19:'USA took one last shot. *CLANG!* It hit the goalpost and bounced away. The stadium giant felt the vibration. Everyone groaned, then laughed. It was so close!',
+        19:'USA took one last shot. *CLANG!* It hit the post and bounced away. The stadium giant felt the vibration. Everyone groaned, then laughed. It was so close!',
         20:'*TWEET! TWEET! TWEET!* The match was over. It was a tie! Both teams had played their best. Alex saw the players trading jerseys. They were rivals on the field, but friends when the game ended.',
         21:'As they walked back to the car, Alex felt tired but very happy. He had a new World Cup hat and a souvenir program. "That was the best day ever," Alex said.',
         22:'In the car, Alex\'s eyes grew heavy. He dreamed of dribbling the ball through the Meadowlands, scoring the winning goal in the World Cup Final. Dad smiled and turned the radio down low.',
@@ -76,22 +76,8 @@ def go():
             c.setFillColorRGB(0.5,0.5,0.5)
             c.drawCentredString(B+T/2,B+5,str(pn))
         c.showPage()
-    # Back cover
+    # Back cover - no text overlay (image may have its own text)
     plc(c,D+'/back-cover.png',PG,PH)
-    c.setFillColorRGB(0.2,0.2,0.2)
-    c.setFont("Helvetica-Bold",16)
-    c.drawCentredString(PG/2,PH-85,"About the Story")
-    c.setFont("Helvetica",11)
-    blurb=("Join Alex and his dad for an unforgettable day at MetLife\n"
-           "Stadium! From the roar of the crowd to the thrill of a\n"
-           "World Cup goal, this story celebrates sports, family,\n"
-           "and the magic of the beautiful game.\n\nAges 5-9 | StorySprout Press")
-    lines=blurb.split('\n');y=PH-115
-    for line in lines:
-        c.drawCentredString(PG/2,y,line);y-=16
-    c.setFont("Helvetica",9)
-    c.setFillColorRGB(0.5,0.5,0.5)
-    c.drawCentredString(PG/2,55,"StorySprout Press")
     c.showPage();c.save()
     sz=os.path.getsize(O)/(1024*1024);print(f"  -> {O} ({sz:.1f} MB)")
     lis=r"""# World Cup Book #1: "MetLife's Big Match" - Product Listing
