@@ -119,7 +119,7 @@ The ball went exactly where it needed to go. The Infinity Screen showed a close-
 ## Page 12
 **Visual:** Half-time. Chloe is at a "Director's Booth" in the stadium, where kids can try "editing" a soccer highlight reel on a screen.
 **Text:**
-At half-time, Chloe visited the "Director's Booth." She got to pick her favorite plays and put them together into a movie! 
+Between periods, Chloe visited the "Director's Booth." She got to pick her favorite plays and put them together into a movie! 
 
 “Soccer is the best story ever told,” Chloe said. 
 
@@ -128,9 +128,9 @@ The Infinity Giant seemed to pulse his lights in agreement. Every match was a ne
 ---
 
 ## Page 13
-**Visual:** The second half starts. The lighting in the stadium is changing as the sun sets, making everything look golden and cinematic.
+**Visual:** The next period starts. The lighting in the stadium is changing as the sun sets, making everything look golden and cinematic.
 **Text:**
-The second half began as the "Golden Hour" arrived. The light was perfect for a hero’s journey! 
+The next period began as the "Golden Hour" arrived. The light was perfect for a hero’s journey! 
 
 The Infinity Giant turned on his internal lights, making the translucent roof glow like a giant white pearl in the night.
 

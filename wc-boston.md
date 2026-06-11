@@ -119,7 +119,7 @@ The ball sailed like a seagull in the wind. The Lighthouse Giant tracked the bal
 ## Page 12
 **Visual:** Half-time. Nora is looking at a "Hall of Fame" exhibit in the stadium concourse, showing historic soccer moments in Boston.
 **Text:**
-At half-time, Nora learned about the history of soccer in New England. 
+Between periods, Nora learned about the history of soccer in New England. 
 
 “Every game is a new stone in the wall of history,” Nora said. 
 
@@ -128,9 +128,9 @@ The Lighthouse Giant stood quiet and tall, listening to the echoes of past victo
 ---
 
 ## Page 13
-**Visual:** The second half starts. The clouds have moved in, making the stadium look even more dramatic. The Lighthouse Giant’s beam is now very bright against the gray sky.
+**Visual:** The next period starts. The clouds have moved in, making the stadium look even more dramatic. The Lighthouse Giant’s beam is now very bright against the gray sky.
 **Text:**
-The second half began as a typical New England fog rolled in. 
+The next period began as a typical New England fog rolled in. 
 
 “Don't worry, the Lighthouse will show the way!” Nora said. 
 

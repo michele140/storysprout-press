@@ -133,16 +133,16 @@ The stadium erupted! The roar was so loud that Alex felt it in his toes. The USA
 ## Page 14
 **Visual:** Half-time. Alex is eating a hot dog and looking at the giant video board. The board shows a "Fan Cam" with Alex and Dad on the big screen!
 **Text:**
-At half-time, the field was quiet for a moment, but the fans were still busy. Alex enjoyed a delicious stadium hot dog. 
+Between periods, the field was quiet for a moment, but the fans were still busy. Alex enjoyed a delicious stadium hot dog. 
 
 Suddenly, he looked up at the giant video board. “Dad, look! It’s us!” Alex and Dad were on the big screen, waving their flags for everyone to see.
 
 ---
 
 ## Page 15
-**Visual:** The second half starts. Argentina has the ball now. They are passing it quickly. The USA goalkeeper is alert, knees bent.
+**Visual:** The next period starts. Argentina has the ball now. They are passing it quickly. The USA goalkeeper is alert, knees bent.
 **Text:**
-The second half began, and Argentina was determined. They moved the ball like a whirlwind! 
+The next period began, and Argentina was determined. They moved the ball like a whirlwind! 
 
 “They’re very good,” Alex said. 
 

@@ -121,7 +121,7 @@ Titan Tex’s giant eye showed the replay over and over. Every fan could see the
 ## Page 12
 **Visual:** Half-time. Emma is at a "Big Texas" photo booth in the stadium, posing with giant foam fingers and a soccer ball.
 **Text:**
-At half-time, Emma had some "Texas-sized" nachos. They were huge! 
+Between periods, Emma had some "Texas-sized" nachos. They were huge! 
 
 “Soccer is great, but Texas food is even better!” Emma laughed. 
 
@@ -130,9 +130,9 @@ Titan Tex hummed a happy, satisfied tune. He loved seeing his guests so well-fed
 ---
 
 ## Page 13
-**Visual:** The second half starts. South Korea is attacking now. The game is very close and exciting.
+**Visual:** The next period starts. South Korea is attacking now. The game is very close and exciting.
 **Text:**
-The second half was a whirlwind! South Korea pushed hard for a goal. They moved the ball with incredible speed, testing the German defense. 
+The next period was a whirlwind! South Korea pushed hard for a goal. They moved the ball with incredible speed, testing the German defense. 
 
 “Keep it up, defense!” Emma yelled. Titan Tex felt the tension in the air, his walls vibrating with every cheer.
 

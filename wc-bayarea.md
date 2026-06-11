@@ -121,7 +121,7 @@ The defenders were confused! The stadium Giant captured the move in super-slow m
 ## Page 12
 **Visual:** Half-time. Kai is at a "Sustainability Station" in the stadium, learning how the stadium recycles water.
 **Text:**
-At half-time, Kai learned how the stadium saves water to keep the grass green. 
+Between periods, Kai learned how the stadium saves water to keep the grass green. 
 
 “Even a giant needs to take care of the earth,” Kai said. 
 
@@ -130,9 +130,9 @@ The Silicon Giant hummed a low, eco-friendly tune. He was proud to be a green gi
 ---
 
 ## Page 13
-**Visual:** The second half starts. The lighting is crisp and clear. A few fog clouds (the famous SF fog) are rolling over the top of the stadium walls.
+**Visual:** The next period starts. The lighting is crisp and clear. A few fog clouds (the famous SF fog) are rolling over the top of the stadium walls.
 **Text:**
-The second half began as a little bit of "Karl the Fog" drifted over the stadium walls. 
+The next period began as a little bit of "Karl the Fog" drifted over the stadium walls. 
 
 “The fog is here to watch the game too!” Kai laughed. 
 

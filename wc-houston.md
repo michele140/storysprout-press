@@ -119,18 +119,18 @@ The ball sailed toward the net. Nigeria’s goalkeeper dived like a soaring eagl
 ## Page 12
 **Visual:** Half-time. Ravi is looking at a "Stars of Soccer" display in the concourse that compares famous players to constellations.
 **Text:**
-At half-time, Ravi explored the constellations of soccer stars. 
+Between periods, Ravi explored the constellations of soccer stars. 
 
 “Just like the stars in the sky, these players shine bright for everyone to see,” Tía Maria said. 
 
-NRG Neo hummed a peaceful, cosmic tune, enjoying the quiet moment before the second half.
+NRG Neo hummed a peaceful, cosmic tune, enjoying the quiet moment before the next period.
 
 ---
 
 ## Page 13
-**Visual:** The second half starts. The stadium's retractable roof is closing now to keep the cool air in as it gets warmer outside.
+**Visual:** The next period starts. The stadium's retractable roof is closing now to keep the cool air in as it gets warmer outside.
 **Text:**
-The second half began, and the Texas sun was getting hot. 
+The next period began, and the Texas sun was getting hot. 
 
 “Initiate roof closure!” Ravi joked. 
 

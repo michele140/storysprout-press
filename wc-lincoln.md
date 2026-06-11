@@ -124,16 +124,16 @@ She started the Wave. It traveled around the forest-green seats—up and down, f
 ## Page 12
 **Visual:** Half-time. Leo is looking at a mural inside the stadium that shows famous Philly athletes and soccer stars together.
 **Text:**
-At half-time, the score was still 0-0. Leo explored the stadium murals. 
+Between periods, the score was still 0-0. Leo explored the stadium murals. 
 
 “Philly has a long history of great teams,” Uncle Joe said. “We never give up. We’re like Rocky—we keep swinging until the final bell!”
 
 ---
 
 ## Page 13
-**Visual:** The second half. It’s raining slightly, but the Philly fans don't care. They have their hoods up and are still cheering. The grass is glistening.
+**Visual:** The next period. It’s raining slightly, but the Philly fans don't care. They have their hoods up and are still cheering. The grass is glistening.
 **Text:**
-The second half brought a light Philly drizzle. The grass got slippery, and the game got even faster. 
+The next period brought a light Philly drizzle. The grass got slippery, and the game got even faster. 
 
 The Linc giant didn't mind the rain. It washed his silver skin and made his heart glow even brighter. He loved a good, gritty match!
 

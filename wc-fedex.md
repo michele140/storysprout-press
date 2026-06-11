@@ -119,7 +119,7 @@ The Japanese goalie dived through the air, stretching his fingers to the very ed
 ## Page 12
 **Visual:** Half-time. Maya is looking at a "World Map of Soccer" mural in the stadium concourse.
 **Text:**
-At half-time, the score was still tied at zero. Maya found a mural that showed where every World Cup had been held. 
+Between periods, the score was still tied at zero. Maya found a mural that showed where every World Cup had been held. 
 
 “Soccer brings the whole world together,” Maya said. 
 
@@ -128,9 +128,9 @@ At half-time, the score was still tied at zero. Maya found a mural that showed w
 ---
 
 ## Page 13
-**Visual:** The second half starts. The clouds have moved in, making the stadium lights look even brighter. The FedEx Giant is "standing tall" against the clouds.
+**Visual:** The next period starts. The clouds have moved in, making the stadium lights look even brighter. The FedEx Giant is "standing tall" against the clouds.
 **Text:**
-The second half began under a cloudy sky. The stadium lights turned on, making everything look like a stage. 
+The next period began under a cloudy sky. The stadium lights turned on, making everything look like a stage. 
 
 The FedEx Giant felt the cool breeze and stood even taller. He loved the drama of a close game!
 

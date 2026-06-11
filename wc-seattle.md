@@ -119,7 +119,7 @@ The ball zipped toward the goal like a comet. The Brazilian goalie made a specta
 ## Page 12
 **Visual:** Half-time. Sam is at a "Rain Forest" exhibit in the stadium, where kids can walk through a mist of water and see real ferns.
 **Text:**
-At half-time, Sam visited the stadium’s "Rain Forest" corner. He loved the cool mist on his face. 
+Between periods, Sam visited the stadium’s "Rain Forest" corner. He loved the cool mist on his face. 
 
 “Even when it's not raining, Seattle feels like home,” Sam said. 
 
@@ -128,9 +128,9 @@ The Roaring Giant hummed a low, peaceful tune, enjoying the misty air. He was a 
 ---
 
 ## Page 13
-**Visual:** The second half starts. A light Seattle drizzle begins to fall. The Dutch fans don't mind—they are wearing orange ponchos and still singing.
+**Visual:** The next period starts. A light Seattle drizzle begins to fall. The Dutch fans don't mind—they are wearing orange ponchos and still singing.
 **Text:**
-The second half began with a gentle "Emerald City" drizzle. The orange fans just put on their ponchos and sang even louder! 
+The next period began with a gentle "Emerald City" drizzle. The orange fans just put on their ponchos and sang even louder! 
 
 The Roaring Giant felt the cool rain on his glass skin and felt refreshed. He was ready for a legendary finish!
 

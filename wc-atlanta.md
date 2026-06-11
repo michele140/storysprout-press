@@ -119,7 +119,7 @@ The Benz giant watched the ball’s every move. He loved seeing such smart, tech
 ## Page 12
 **Visual:** Half-time. Zoe is at a "Science of Soccer" exhibit in the concourse, learning about ball physics.
 **Text:**
-At half-time, the score was 0-0. Zoe visited an exhibit that explained how the air affects the ball’s flight. 
+Between periods, the score was 0-0. Zoe visited an exhibit that explained how the air affects the ball’s flight. 
 
 “Everything is science, even soccer!” Zoe laughed. 
 
@@ -128,9 +128,9 @@ The Benz giant seemed to agree, his sensors humming a happy, technical tune.
 ---
 
 ## Page 13
-**Visual:** The second half starts. The stadium's retractable roof is closing now as a few rain clouds appear. The process looks very cool.
+**Visual:** The next period starts. The stadium's retractable roof is closing now as a few rain clouds appear. The process looks very cool.
 **Text:**
-The second half began as a few rain clouds drifted over. 
+The next period began as a few rain clouds drifted over. 
 
 “Watch the roof, Zoe!” Dad said. 
 

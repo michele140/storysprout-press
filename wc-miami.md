@@ -121,16 +121,16 @@ Mateo and Abuela jumped so high they nearly flew! Confetti rain fell from the Ha
 ## Page 12
 **Visual:** Half-time. Mateo is eating a mango-on-a-stick and looking at the "Global Goal" video on the big screen.
 **Text:**
-At half-time, Mateo enjoyed a sweet mango-on-a-stick. On the big screen, they showed soccer goals from all over the world. 
+Between periods, Mateo enjoyed a sweet mango-on-a-stick. On the big screen, they showed soccer goals from all over the world. 
 
 “Soccer is a language everyone speaks,” Abuela said. Mateo nodded. He had made friends with the boy sitting next to him who was wearing a Mexico jersey.
 
 ---
 
 ## Page 13
-**Visual:** The second half. The sun is setting, making the sky turn a beautiful purple and pink (Miami colors). The Hard Rock Hero’s neon lights are starting to glow even brighter.
+**Visual:** The next period. The sun is setting, making the sky turn a beautiful purple and pink (Miami colors). The Hard Rock Hero’s neon lights are starting to glow even brighter.
 **Text:**
-The second half began as the sky turned the color of cotton candy. 
+The next period began as the sky turned the color of cotton candy. 
 
 The Hard Rock Hero turned on his neon lights—bright pink, electric blue, and sunny yellow. The stadium looked like a giant glowing jewel box.
 
