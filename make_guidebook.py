@@ -109,21 +109,20 @@ for idx, s in enumerate(S):
     # ----- PAGE 1: STADIUM PAGE (photo banner top, text below) -----
     c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
     
-    # TOP: 3 photos in a row across the page
-    pw3 = TRIM_W / 3.0
-    ph3 = TRIM_H * 0.38
-    place_photo(D+'/'+simg, BLEED, BLEED + TRIM_H - ph3, pw3, ph3)
-    place_photo(D+'/'+pimg, BLEED + pw3, BLEED + TRIM_H - ph3, pw3, ph3)
-    place_photo(D+'/'+simg, BLEED + pw3*2, BLEED + TRIM_H - ph3, pw3, ph3)
+    # TOP: 2 photos side by side across the page
+    pw2 = TRIM_W / 2.0
+    ph2 = TRIM_H * 0.38
+    place_photo(D+'/'+simg, BLEED, BLEED + TRIM_H - ph2, pw2, ph2)
+    place_photo(D+'/'+pimg, BLEED + pw2, BLEED + TRIM_H - ph2, pw2, ph2)
     
     # Text area below photos
     tx = BLEED + 15
-    ty = PH - BLEED - ph3 - 45
+    ty = PH - BLEED - ph2 - 45
     tw = TRIM_W - 30
     
     # Light background for text
     c.setFillColorRGB(0.95,0.96,1.0)
-    c.roundRect(BLEED+8, BLEED+10, TRIM_W-16, TRIM_H - ph3 - 35, 10, fill=1, stroke=0)
+    c.roundRect(BLEED+8, BLEED+10, TRIM_W-16, TRIM_H - ph2 - 35, 10, fill=1, stroke=0)
     
     # Title
     c.setFont("Helvetica-Bold", 20)
@@ -164,14 +163,13 @@ for idx, s in enumerate(S):
     
     # ----- PAGE 2: PLAYER PAGE (photo banner top, text below) -----
     c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
-    place_photo(D+'/'+pimg, BLEED, BLEED + TRIM_H - ph3, pw3, ph3)
-    place_photo(D+'/'+simg, BLEED + pw3, BLEED + TRIM_H - ph3, pw3, ph3)
-    place_photo(D+'/'+pimg, BLEED + pw3*2, BLEED + TRIM_H - ph3, pw3, ph3)
+    place_photo(D+'/'+pimg, BLEED, BLEED + TRIM_H - ph2, pw2, ph2)
+    place_photo(D+'/'+simg, BLEED + pw2, BLEED + TRIM_H - ph2, pw2, ph2)
     
     c.setFillColorRGB(0.95,0.96,1.0)
-    c.roundRect(BLEED+8, BLEED+10, TRIM_W-16, TRIM_H - ph3 - 35, 10, fill=1, stroke=0)
+    c.roundRect(BLEED+8, BLEED+10, TRIM_W-16, TRIM_H - ph2 - 35, 10, fill=1, stroke=0)
     
-    ty = PH - BLEED - ph3 - 45
+    ty = PH - BLEED - ph2 - 45
     
     c.setFont("Helvetica-Bold", 20)
     c.setFillColorRGB(0.05,0.05,0.3)
