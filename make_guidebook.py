@@ -571,6 +571,11 @@ for i, (stat, desc) in enumerate(stats_data):
     c.setFillColorRGB(0.9, 0.9, 1)
     c.drawCentredString(x + card_w/2, y - card_h/2 - 10, desc)
 
+# Flag banner at bottom
+banner_path = D+'/section-flags-banner.png'
+if os.path.exists(banner_path):
+    place_photo(banner_path, BLEED, BLEED+10, TRIM_W, 120)
+
 c.setFont("Helvetica-Bold", TNY)
 c.setFillColorRGB(0.5,0.5,0.5)
 c.drawString(BLEED+15, BLEED+8, "WORLD CUP 2026 SOUVENIR GUIDEBOOK")
