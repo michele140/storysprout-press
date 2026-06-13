@@ -42,7 +42,8 @@ def strip_cat(t):
     """Strip [CATEGORY] prefix and emoji/special characters. Keep ASCII + accented Latin for Helvetica."""
     t = re.sub(r'^\[[^\]]+\]\s*', '', t)
     # Remove emoji + special chars (bullets, arrows, etc) - Helvetica can't render these
-    return re.sub(r'[^\x20-\x7E\x80-\xFF\u00C0-\u024F\u1E00-\u1EFF\u2010-\u2018\u2019\u201C\u201D\u2026]', '', t)
+    t = re.sub(r'[^\x20-\x7E\x80-\xFF\u00C0-\u024F\u1E00-\u1EFF\u2010-\u2018\u2019\u201C\u201D\u2026]', '', t)
+    return t.lstrip()  # remove leading space left after emoji removal
 
 def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3), card_color=(0.95,0.96,1.0)):
     """Draw a category section: colored header bar + 4 facts in 2x2 card grid.
@@ -59,12 +60,12 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
 
     # Pre-compute wrapped lines for all 4 facts to determine uniform card height
     c.setFont("Helvetica-Bold", SML)
-    col_w = (tw - 8) / 2
+    col_w = max(100, (tw - 8) / 2)  # 8pt gap between columns
     pre_lines = []
     max_lines = 1
     for fi in range(min(4, len(facts))):
         ft = strip_cat(facts[fi])
-        lines = simpleSplit(ft, c._fontname, c._fontsize, col_w - 6)
+        lines = simpleSplit(ft, c._fontname, c._fontsize, col_w - 4)
         pre_lines.append(lines)
         max_lines = max(max_lines, len(lines))
     
@@ -80,7 +81,7 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
             lines = pre_lines[idx]
             cx = tx + col * (col_w + 8)
             
-            # Card background
+            # Card background (draw BEFORE text)
             c.setFillColorRGB(*card_color)
             c.roundRect(cx, row_y-card_h+2, col_w, card_h, 4, fill=1, stroke=0)
             
@@ -88,7 +89,7 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
             for li, line in enumerate(lines):
                 if line.strip():
                     c.setFillColorRGB(0,0,0)
-                    c.drawString(cx+3, row_y - card_h + 6 + li*13, line)
+                    c.drawString(cx+5, row_y - card_h + 7 + li*13, line)
     
     ty -= 2 * (card_h + gap) - gap + 4
     
