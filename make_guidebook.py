@@ -44,6 +44,7 @@ def strip_cat(t):
 
 def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3), card_color=(0.95,0.96,1.0)):
     """Draw a category section: colored header bar + 4 facts in 2x2 card grid.
+    Cards dynamically size to fit all wrapped text lines.
     Returns new y position after the section."""
     # Header bar
     hdr_h = 20
@@ -54,30 +55,36 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
     c.drawString(tx, ty-hdr_h/2-4, title)
     ty -= hdr_h + 6
 
-    # 4 facts in 2 columns x 2 rows
-    col_w = (tw - 8) / 2  # 8pt gap between columns
+    # Pre-compute wrapped lines for all 4 facts to determine uniform card height
+    c.setFont("Helvetica-Bold", SML)
+    col_w = (tw - 8) / 2
+    pre_lines = []
+    max_lines = 1
+    for fi in range(min(4, len(facts))):
+        ft = strip_cat(facts[fi])
+        lines = simpleSplit(ft, c._fontname, c._fontsize, col_w - 6)
+        pre_lines.append(lines)
+        max_lines = max(max_lines, len(lines))
+    
+    # Uniform card height based on longest wrapped text
+    card_h = max(24, max_lines * 13 + 6)
     gap = 6
-    card_h = 24
     
     for row in range(2):
         row_y = ty - row * (card_h + gap)
         for col in range(2):
             idx = row * 2 + col
             if idx >= len(facts): break
-            ft = strip_cat(facts[idx])
+            lines = pre_lines[idx]
             cx = tx + col * (col_w + 8)
             
             # Card background
             c.setFillColorRGB(*card_color)
             c.roundRect(cx, row_y-card_h+2, col_w, card_h, 4, fill=1, stroke=0)
             
-            # Text - try to fit in the card width
-            c.setFont("Helvetica-Bold", SML)
-            c.setFillColorRGB(0.1,0.1,0.2)
-            # Use simpleSplit to wrap text
-            lines = simpleSplit(ft, c._fontname, c._fontsize, col_w - 6)
-            if lines:
-                c.drawString(cx+3, row_y-card_h/2-4, lines[0])
+            # Draw all wrapped lines inside the card
+            for li, line in enumerate(lines):
+                c.drawString(cx+3, row_y - card_h + 6 + li*13, line)
     
     ty -= 2 * (card_h + gap) - gap + 4
     
