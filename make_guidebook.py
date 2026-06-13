@@ -106,113 +106,120 @@ c.showPage()
 for idx, s in enumerate(S):
     name, nick, city, simg, pimg, pname, pcountry, ppos, pclub, pcaps, pgls, city_facts, player_facts = s
     
-    # ----- PAGE 1: STADIUM PAGE (photo left, facts fill right) -----
+    # ----- PAGE 1: STADIUM PAGE (photo banner top, text below) -----
     c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
-    # LEFT: photo centered avoiding stretch
-    photo_w = TRIM_W*0.48
-    photo_h = TRIM_H*0.95
-    place_photo(D+'/'+simg, BLEED+8, BLEED+12, photo_w, photo_h)
-    # RIGHT: facts column
-    rx = BLEED + TRIM_W*0.50 + 18
-    rw = TRIM_W*0.50 - 30
-    ry = PH - BLEED - 25
     
-    # Light background for text area
+    # TOP: 3 photos in a row across the page
+    pw3 = TRIM_W / 3.0
+    ph3 = TRIM_H * 0.38
+    place_photo(D+'/'+simg, BLEED, BLEED + TRIM_H - ph3, pw3, ph3)
+    place_photo(D+'/'+pimg, BLEED + pw3, BLEED + TRIM_H - ph3, pw3, ph3)
+    place_photo(D+'/'+simg, BLEED + pw3*2, BLEED + TRIM_H - ph3, pw3, ph3)
+    
+    # Text area below photos
+    tx = BLEED + 15
+    ty = PH - BLEED - ph3 - 45
+    tw = TRIM_W - 30
+    
+    # Light background for text
     c.setFillColorRGB(0.95,0.96,1.0)
-    c.roundRect(rx-8, BLEED+5, rw+12, TRIM_H-30, 12, fill=1, stroke=0)
+    c.roundRect(BLEED+8, BLEED+10, TRIM_W-16, TRIM_H - ph3 - 35, 10, fill=1, stroke=0)
     
     # Title
-    c.setFont("Helvetica-Bold", 24)
+    c.setFont("Helvetica-Bold", 20)
     c.setFillColorRGB(0.05,0.05,0.3)
-    c.drawString(rx, ry, f"#{idx+1}  {name}")
-    ry -= 38
-    c.setFont("Helvetica-Bold", 14)
-    c.setFillColorRGB(0.4,0.4,0.4)
-    c.drawString(rx, ry, f'\"{nick}\"  |  {city}')
-    ry -= 30
-    
-    # Dark header bar
-    c.setFillColorRGB(0.06,0.06,0.3)
-    c.roundRect(rx-2, ry-2, rw+4, 24, 4, fill=1, stroke=0)
+    c.drawString(tx, ty, f"#{idx+1}  {name}  •  {nick}")
+    ty -= 28
     c.setFont("Helvetica-Bold", 13)
-    c.setFillColorRGB(1,1,1)
-    c.drawString(rx, ry-1, "🏙️  CITY + STADIUM FACTS")
-    ry -= 32
+    c.setFillColorRGB(0.4,0.4,0.4)
+    c.drawString(tx, ty, f"📍 {city}")
+    ty -= 8
     
-    # Facts — fill the rest of the column
+    # Line separator
+    c.setStrokeColorRGB(0.06,0.06,0.3)
+    c.setLineWidth(1)
+    c.line(tx, ty, tx+tw, ty)
+    ty -= 16
+    
+    # Facts header
+    c.setFillColorRGB(0.06,0.06,0.3)
+    c.roundRect(tx-2, ty-2, tw+4, 22, 4, fill=1, stroke=0)
     c.setFont("Helvetica-Bold", 12)
+    c.setFillColorRGB(1,1,1)
+    c.drawString(tx, ty-1, "📍  CITY & STADIUM FACTS")
+    ty -= 26
+    
+    c.setFont("Helvetica-Bold", 11)
     c.setFillColorRGB(0.1,0.1,0.2)
     for ft in city_facts:
-        if ry < BLEED + 15: break
-        c.drawString(rx, ry, ft)
-        ry -= 20
+        if ty < BLEED + 25: break
+        c.drawString(tx, ty, f"• {ft}")
+        ty -= 17
     
-    # Footer
     c.setFont("Helvetica-Bold", 7)
     c.setFillColorRGB(0.5,0.5,0.5)
     c.drawString(BLEED+15, BLEED+8, "WORLD CUP 2026 SOUVENIR GUIDEBOOK")
     c.drawRightString(PW-BLEED-15, BLEED+8, f"Page {idx*2+3}")
     c.showPage()
     
-    # ----- PAGE 2: PLAYER PROFILE (photo left, facts fill right) -----
+    # ----- PAGE 2: PLAYER PAGE (photo banner top, text below) -----
     c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
-    place_photo(D+'/'+pimg, BLEED+8, BLEED+12, photo_w, photo_h)
+    place_photo(D+'/'+pimg, BLEED, BLEED + TRIM_H - ph3, pw3, ph3)
+    place_photo(D+'/'+simg, BLEED + pw3, BLEED + TRIM_H - ph3, pw3, ph3)
+    place_photo(D+'/'+pimg, BLEED + pw3*2, BLEED + TRIM_H - ph3, pw3, ph3)
     
-    rx = BLEED + TRIM_W*0.50 + 18
-    ry = PH - BLEED - 25
-    
-    # Light background
     c.setFillColorRGB(0.95,0.96,1.0)
-    c.roundRect(rx-8, BLEED+5, rw+12, TRIM_H-30, 12, fill=1, stroke=0)
+    c.roundRect(BLEED+8, BLEED+10, TRIM_W-16, TRIM_H - ph3 - 35, 10, fill=1, stroke=0)
     
-    # Title
-    c.setFont("Helvetica-Bold", 24)
+    ty = PH - BLEED - ph3 - 45
+    
+    c.setFont("Helvetica-Bold", 20)
     c.setFillColorRGB(0.05,0.05,0.3)
-    c.drawString(rx, ry, "⭐  Player Profile")
-    ry -= 38
-    c.setFont("Helvetica-Bold", 18)
+    c.drawString(tx, ty, "⭐  Player Profile")
+    ty -= 28
+    c.setFont("Helvetica-Bold", 16)
     c.setFillColorRGB(0.05,0.05,0.3)
-    c.drawString(rx, ry, pname)
-    ry -= 28
-    c.setFont("Helvetica-Bold", 13)
+    c.drawString(tx, ty, f"{pname}  •  {pcountry}")
+    ty -= 18
+    c.setFont("Helvetica-Bold", 12)
     c.setFillColorRGB(0.4,0.4,0.4)
-    c.drawString(rx, ry, f"{pcountry}  |  {ppos}  |  {pclub}")
-    ry -= 26
+    c.drawString(tx, ty, f"{ppos}  •  {pclub}")
+    ty -= 8
     
-    # Stat badges
-    stats = [("🇺🇳 Caps", pcaps), ("⚽ Goals", pgls), ("🎯 Position", ppos), ("🏟️ Club", pclub)]
-    bw = rw*0.47
-    bh = 28
-    for si, (label, val) in enumerate(stats):
-        col = si%2; row = si//2
-        bx = rx + col*(bw+6)
-        by = ry - row*(bh+6)
-        c.setFillColorRGB(0.06,0.06,0.3)
-        c.roundRect(bx, by-bh+4, bw, bh, 4, fill=1, stroke=0)
-        c.setFont("Helvetica-Bold", 14)
-        c.setFillColorRGB(1,1,1)
-        c.drawCentredString(bx+bw/2, by-bh/2+5, str(val))
-        c.setFont("Helvetica-Bold", 8)
-        c.drawCentredString(bx+bw/2, by-bh/2-9, label)
-    ry -= 2*(bh+6) + 12
+    c.setStrokeColorRGB(0.06,0.06,0.3)
+    c.setLineWidth(1)
+    c.line(tx, ty, tx+tw, ty)
+    ty -= 16
     
-    # Fun facts header
-    if ry > BLEED + 50:
+    # Stat badges in a row
+    st = [("🇺🇳 Caps", pcaps), ("⚽ Goals", pgls), ("🎯 Position", ppos), ("🏟️ Club", pclub.split()[-1])]
+    bw2 = tw*0.22
+    bh2 = 26
+    for si, (lb, vl) in enumerate(st):
+        bx = tx + si*(bw2+5)
         c.setFillColorRGB(0.06,0.06,0.3)
-        c.roundRect(rx-2, ry-2, rw+4, 24, 4, fill=1, stroke=0)
-        c.setFont("Helvetica-Bold", 13)
-        c.setFillColorRGB(1,1,1)
-        c.drawString(rx, ry-1, "🔥  FUN FACTS")
-        ry -= 30
-        
+        c.roundRect(bx, ty-bh2+4, bw2, bh2, 4, fill=1, stroke=0)
         c.setFont("Helvetica-Bold", 12)
-        c.setFillColorRGB(0.1,0.1,0.2)
-        for ff in player_facts:
-            if ry < BLEED + 15: break
-            c.drawString(rx, ry, ff)
-            ry -= 20
+        c.setFillColorRGB(1,1,1)
+        c.drawCentredString(bx+bw2/2, ty-bh2/2+4, str(vl))
+        c.setFont("Helvetica-Bold", 7)
+        c.drawCentredString(bx+bw2/2, ty-bh2/2-9, lb)
+    ty -= bh2 + 14
     
-    # Footer
+    c.setFillColorRGB(0.06,0.06,0.3)
+    c.roundRect(tx-2, ty-2, tw+4, 22, 4, fill=1, stroke=0)
+    c.setFont("Helvetica-Bold", 12)
+    c.setFillColorRGB(1,1,1)
+    c.drawString(tx, ty-1, "🔥  FUN FACTS")
+    ty -= 26
+    
+    c.setFont("Helvetica-Bold", 11)
+    c.setFillColorRGB(0.1,0.1,0.2)
+    for ff in player_facts:
+        if ty < BLEED + 25: break
+        c.drawString(tx, ty, f"• {ff}")
+        ty -= 17
+    
     c.setFont("Helvetica-Bold", 7)
     c.setFillColorRGB(0.5,0.5,0.5)
     c.drawString(BLEED+15, BLEED+8, "WORLD CUP 2026 SOUVENIR GUIDEBOOK")
