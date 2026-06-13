@@ -571,10 +571,10 @@ for i, (stat, desc) in enumerate(stats_data):
     c.setFillColorRGB(0.9, 0.9, 1)
     c.drawCentredString(x + card_w/2, y - card_h/2 - 10, desc)
 
-# Flag banner at bottom
+# Flag banner at bottom - 48 nations flags
 banner_path = D+'/section-flags-banner.png'
 if os.path.exists(banner_path):
-    place_photo(banner_path, BLEED, BLEED+10, TRIM_W, 120)
+    place_photo(banner_path, BLEED, BLEED+10, TRIM_W, 200)
 
 c.setFont("Helvetica-Bold", TNY)
 c.setFillColorRGB(0.5,0.5,0.5)
