@@ -533,6 +533,7 @@ stats_data = [
     ("60,000+", "Helpful volunteers on site"), ("40+ Languages", "Broadcast to the world"),
     ("$440 Million", "2022 total prize pool"), ("10,000+", "Media and news reporters"),
     ("$14 Billion", "Boost to host economy"), ("1,200+ Players", "Star athletes in action"),
+    ("32 Days", "Non-stop soccer action"),
 ]
 
 cols = 3
