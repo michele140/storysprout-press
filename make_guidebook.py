@@ -16,7 +16,7 @@ M=0.5*inch
 
 c=canvas.Canvas(O,pagesize=(PW,PH),pageCompression=1)
 
-SML=9; HDR=13; TTL=20; TNY=7
+SML=11; HDR=13; TTL=20; TNY=7
 
 def place_photo(p,x,y,box_w,box_h):
     if not p or not os.path.exists(p): return
@@ -43,9 +43,8 @@ def strip_cat(t):
     return re.sub(r'^\[[^\]]+\]\s*', '', t)
 
 def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3), card_color=(0.95,0.96,1.0)):
-    """Draw a category section: colored header bar + 4 facts in 2x2 card grid.
-    Cards dynamically size to fit all wrapped text lines.
-    Returns new y position after the section."""
+    """Draw a category section: colored header bar + 4 facts in full-width single-column cards.
+    Cards span full width and stack vertically. Returns new y position."""
     # Header bar
     hdr_h = 16
     c.setFillColorRGB(*header_color)
@@ -55,40 +54,29 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
     c.drawString(tx, ty-hdr_h/2-4, title)
     ty -= hdr_h + 6
 
-    # Pre-compute wrapped lines for all 4 facts to determine uniform card height
+    # Render each fact as a full-width card
     c.setFont("Helvetica-Bold", SML)
-    col_w = max(100, (tw - 8) / 2)  # 8pt gap between columns
-    pre_lines = []
-    max_lines = 1
+    gap = 4
+    
     for fi in range(min(4, len(facts))):
         ft = strip_cat(facts[fi])
-        lines = simpleSplit(ft, c._fontname, c._fontsize, col_w - 4)
-        pre_lines.append(lines)
-        max_lines = max(max_lines, len(lines))
-    
-    # Uniform card height based on longest wrapped text
-    card_h = max(20, max_lines * 11 + 6)
-    gap = 6
-    
-    for row in range(2):
-        row_y = ty - row * (card_h + gap)
-        for col in range(2):
-            idx = row * 2 + col
-            if idx >= len(facts): break
-            lines = pre_lines[idx]
-            cx = tx + col * (col_w + 8)
-            
-            # Card background (draw BEFORE text)
-            c.setFillColorRGB(*card_color)
-            c.roundRect(cx, row_y-card_h+2, col_w, card_h, 4, fill=1, stroke=0)
-            
-            # Draw all wrapped lines inside the card - pure black text
-            for li, line in enumerate(lines):
-                if line.strip():
-                    c.setFillColorRGB(0,0,0)
-                    c.drawString(cx+5, row_y - card_h + 7 + li*11, line)
-    
-    ty -= 2 * (card_h + gap) - gap + 4
+        lines = simpleSplit(ft, c._fontname, c._fontsize, tw - 8)
+        if not lines:
+            continue
+        
+        card_h = max(18, len(lines) * 13 + 4)
+        
+        # Card background
+        c.setFillColorRGB(*card_color)
+        c.roundRect(tx, ty-card_h+2, tw, card_h, 4, fill=1, stroke=0)
+        
+        # Draw all wrapped lines
+        for li, line in enumerate(lines):
+            if line.strip():
+                c.setFillColorRGB(0,0,0)
+                c.drawString(tx+5, ty - card_h + 5 + li*13, line)
+        
+        ty -= card_h + gap
     
     # Divider line between sections
     c.setStrokeColorRGB(0.85,0.85,0.9)
