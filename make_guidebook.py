@@ -70,11 +70,11 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
         c.setFillColorRGB(*card_color)
         c.roundRect(tx, ty-card_h+2, tw, card_h, 4, fill=1, stroke=0)
         
-        # Draw all wrapped lines
+        # Draw all wrapped lines — top to bottom
         for li, line in enumerate(lines):
             if line.strip():
                 c.setFillColorRGB(0,0,0)
-                c.drawString(tx+5, ty - card_h + 5 + li*13, line)
+                c.drawString(tx+5, ty - 4 - li * 13, line)
         
         ty -= card_h + gap
     
