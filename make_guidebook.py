@@ -176,7 +176,7 @@ for idx, s in enumerate(S):
     place_photo(D+'/'+pimg, BLEED, BLEED + TRIM_H - ph2, pw2, ph2)
     # Club logo
     club_logos = ["club-01-milan.png","club-02-madrid.png","club-03-bayern.png","club-04-intermiami.png",
-                  "club-05-realmadrid2.png","club-06-galatasaray.png","club-07-tottenham.png",
+                  "club-05-realmadrid.png","club-06-galatasaray.png","club-07-tottenham.png",
                   "club-08-alnassr.png","club-09-mancity.png","club-10-liverpool.png","club-11-psg.png"]
     cld = '/home/team/shared/wc2026-club-illustrations'
     climg = cld+'/'+club_logos[idx] if idx < len(club_logos) else None
@@ -252,11 +252,56 @@ c.showPage()
 # ============================================================
 # PAGE 26: STATS PAGE
 # ============================================================
+c.setFillColorRGB(0.98,0.98,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
+tx = BLEED + 20
+ty = PH - BLEED - 30
+
+c.setFont("Helvetica-Bold", 22)
+c.setFillColorRGB(0.05,0.05,0.3)
+c.drawCentredString(PW/2, ty, "World Cup 2026  •  By The Numbers")
+ty -= 35
+
+stats_data = [
+    ("48 Nations","Most teams ever in a World Cup"),
+    ("104 Matches","Record-breaking games"),
+    ("16 Host Cities","Across USA, Mexico & Canada"),
+    ("11 Stadium Giants","Each with a unique personality"),
+    ("3 Countries","First tri-hosted World Cup ever"),
+    ("5 Billion Viewers","Estimated global TV audience"),
+    ("40,000 Tons Steel","Used in MetLife Stadium alone"),
+    ("11,000+ Solar Panels","Power Lincoln Financial Field"),
+    ("160 ft Video Board","AT&T Stadium massive screen"),
+    ("8 Min Roof Open","Mercedes-Benz halo roof opens"),
+    ("70,000+ Avg Capacity","Across all 11 stadiums"),
+    ("$5.5B Stadium","SoFi most expensive ever built"),
+]
+cols = 3
+col_w = (TRIM_W - 40) / cols
+for i,(stat,desc) in enumerate(stats_data):
+    col = i%cols; row = i//cols
+    x = BLEED + 15 + col*col_w
+    y = ty - row*50
+    c.setFont("Helvetica-Bold", 14)
+    c.setFillColorRGB(0.05,0.05,0.3)
+    c.drawString(x, y, stat)
+    c.setFont("Helvetica-Bold", 10)
+    c.setFillColorRGB(0.3,0.3,0.3)
+    c.drawString(x, y-18, desc)
+
+c.setFont("Helvetica-Bold", 7)
+c.setFillColorRGB(0.5,0.5,0.5)
+c.drawString(BLEED+15, BLEED+8, "WORLD CUP 2026 SOUVENIR GUIDEBOOK")
+c.drawRightString(PW-BLEED-15, BLEED+8, "Stats & Records")
+c.showPage()
+
+# ============================================================
+# PAGE 27: BACK COVER
+# ============================================================
 place_full(D+'/back-cover.png')
 c.showPage()
 
 c.save()
 sz=os.path.getsize(O)/(1024*1024)
-print(f"✅ Guidebook saved: {O} ({sz:.1f} MB, {len(S)*2+4} pages)")
-print(f"   Each stadium: 8 city/stadium facts + 8 player fun facts")
-print(f"   Layout: Full photo left, full text fills right column")
+print(f"✅ Guidebook saved: {O} ({sz:.1f} MB, {len(S)*2+5} pages)")
+print(f"   Each: 2 photos top, text below")
+print(f"   {len(S[0][11])} city/stadium facts + {len(S[0][12])} player fun facts per stadium")
