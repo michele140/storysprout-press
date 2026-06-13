@@ -16,7 +16,7 @@ M=0.5*inch
 
 c=canvas.Canvas(O,pagesize=(PW,PH),pageCompression=1)
 
-SML=11; HDR=13; TTL=20; TNY=7
+SML=9; HDR=13; TTL=20; TNY=7
 
 def place_photo(p,x,y,box_w,box_h):
     if not p or not os.path.exists(p): return
@@ -67,7 +67,7 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
         max_lines = max(max_lines, len(lines))
     
     # Uniform card height based on longest wrapped text
-    card_h = max(24, max_lines * 13 + 6)
+    card_h = max(20, max_lines * 11 + 4)
     gap = 6
     
     for row in range(2):
@@ -86,7 +86,7 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
             for li, line in enumerate(lines):
                 if line.strip():
                     c.setFillColorRGB(0,0,0)
-                    c.drawString(cx+5, row_y - card_h + 7 + li*13, line)
+                    c.drawString(cx+5, row_y - card_h + 7 + li*11, line)
     
     ty -= 2 * (card_h + gap) - gap + 4
     
