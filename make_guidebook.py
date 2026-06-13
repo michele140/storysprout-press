@@ -571,10 +571,20 @@ for i, (stat, desc) in enumerate(stats_data):
     c.setFillColorRGB(0.9, 0.9, 1)
     c.drawCentredString(x + card_w/2, y - card_h/2 - 10, desc)
 
-# Flag banner at bottom - 48 nations flags
+# Flag banner at bottom - 48 nations flags - crop to full width
 banner_path = D+'/section-flags-banner.png'
 if os.path.exists(banner_path):
-    place_photo(banner_path, BLEED, BLEED+10, TRIM_W, 200)
+    bi = Image.open(banner_path).convert('RGB')
+    bw, bh = bi.size
+    target_ar = TRIM_W / 210  # aspect ratio we need
+    crop_h = int(bw / target_ar)
+    if crop_h > bh: crop_h = bh
+    crop_y = (bh - crop_h) // 2
+    bi = bi.crop((0, crop_y, bw, crop_y + crop_h))
+    bi = bi.resize((int(TRIM_W), 210), Image.LANCZOS)
+    bt = os.path.join(TMP, 'flags_banner.jpg')
+    bi.save(bt, 'JPEG', quality=90)
+    c.drawImage(bt, BLEED, BLEED+10, TRIM_W, 210)
 
 c.setFont("Helvetica-Bold", TNY)
 c.setFillColorRGB(0.5,0.5,0.5)
