@@ -146,6 +146,11 @@ for idx, s in enumerate(S):
     rw = TRIM_W * 0.44
     ry = PH - BLEED - M - 15
 
+    # Big background panel for the entire text column
+    panel_h = TRIM_H - M*2 - 30
+    c.setFillColorRGB(0.92,0.94,0.98)
+    c.roundRect(rx-6, BLEED+M-10, rw+12, panel_h, 10, fill=1, stroke=0)
+
     # Title
     c.setFont("Helvetica-Bold", TITLE)
     c.setFillColorRGB(0.05,0.05,0.3)
@@ -157,7 +162,8 @@ for idx, s in enumerate(S):
     ry -= HEAD * 1.6
 
     # ===== CITY HIGHLIGHTS =====
-    box(c, rx, ry-1, rw, HEAD*1.35+4)
+    c.setFillColorRGB(0.08,0.08,0.35)
+    c.roundRect(rx-2, ry-1, rw+4, HEAD*1.35+4, 4, fill=1, stroke=0)
     c.setFont("Helvetica-Bold", HEAD)
     c.setFillColorRGB(1,1,1)
     c.drawString(rx, ry, "🏙️ CITY HIGHLIGHTS")
@@ -166,14 +172,15 @@ for idx, s in enumerate(S):
     c.setFont("Helvetica-Bold", BODY)
     c.setFillColorRGB(0.1,0.1,0.2)
     for ft in cfacts:
-        if ry < BLEED + M: break
+        if ry < BLEED + M + 10: break
         c.drawString(rx, ry, ft)
         ry -= BODY * 1.4
 
     ry -= 6
 
     # ===== STADIUM FACTS =====
-    box(c, rx, ry-1, rw, HEAD*1.35+4)
+    c.setFillColorRGB(0.08,0.08,0.35)
+    c.roundRect(rx-2, ry-1, rw+4, HEAD*1.35+4, 4, fill=1, stroke=0)
     c.setFont("Helvetica-Bold", HEAD)
     c.setFillColorRGB(1,1,1)
     c.drawString(rx, ry, "🏟️ STADIUM FACTS")
@@ -182,7 +189,7 @@ for idx, s in enumerate(S):
     c.setFont("Helvetica-Bold", BODY)
     c.setFillColorRGB(0.1,0.1,0.2)
     for ft in sfacts:
-        if ry < BLEED + M: break
+        if ry < BLEED + M + 10: break
         c.drawString(rx, ry, ft)
         ry -= BODY * 1.4
 
@@ -200,6 +207,11 @@ for idx, s in enumerate(S):
     rx2 = PW * 0.52
     rw2 = TRIM_W * 0.44
     ry2 = PH - BLEED - M - 15
+    
+    # Big background panel
+    panel2_h = TRIM_H - M*2 - 30
+    c.setFillColorRGB(0.92,0.94,0.98)
+    c.roundRect(rx2-6, BLEED+M-10, rw2+12, panel2_h, 10, fill=1, stroke=0)
 
     # Header
     c.setFont("Helvetica-Bold", TITLE)
@@ -240,7 +252,8 @@ for idx, s in enumerate(S):
     ry2 -= 2*(bh+8) + 15
 
     # Fun facts
-    box(c, rx2, ry2-1, rw2, HEAD*1.35+4)
+    c.setFillColorRGB(0.08,0.08,0.35)
+    c.roundRect(rx2-2, ry2-1, rw2+4, HEAD*1.35+4, 4, fill=1, stroke=0)
     c.setFont("Helvetica-Bold", HEAD)
     c.setFillColorRGB(1,1,1)
     c.drawString(rx2, ry2, "🔥 FUN FACTS")
@@ -249,7 +262,7 @@ for idx, s in enumerate(S):
     c.setFont("Helvetica-Bold", BODY)
     c.setFillColorRGB(0.1,0.1,0.2)
     for ff in pfun:
-        if ry2 < BLEED + M: break
+        if ry2 < BLEED + M + 10: break
         c.drawString(rx2, ry2, f"• {ff}")
         ry2 -= BODY * 1.4
 
