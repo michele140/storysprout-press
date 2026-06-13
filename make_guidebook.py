@@ -47,7 +47,7 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
     Cards dynamically size to fit all wrapped text lines.
     Returns new y position after the section."""
     # Header bar
-    hdr_h = 20
+    hdr_h = 16
     c.setFillColorRGB(*header_color)
     c.roundRect(tx-2, ty-hdr_h+2, tw+4, hdr_h, 4, fill=1, stroke=0)
     c.setFont("Helvetica-Bold", HDR)
@@ -67,7 +67,7 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
         max_lines = max(max_lines, len(lines))
     
     # Uniform card height based on longest wrapped text
-    card_h = max(20, max_lines * 11 + 4)
+    card_h = max(20, max_lines * 11 + 6)
     gap = 6
     
     for row in range(2):
