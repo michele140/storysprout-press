@@ -33,7 +33,7 @@ def dw(text,x,y,sz=BODY,r=0,g=0,b=0):
     c.setFont("Helvetica-Bold",sz)
     c.setFillColorRGB(r,g,b)
     c.drawString(x,y,text)
-    return y - sz*1.4
+    return y - sz*1.8
 
 def dwc(text,x,y,sz=TITLE,r=0,g=0,b=0):
     c.setFont("Helvetica-Bold",sz)
@@ -166,27 +166,25 @@ for idx, s in enumerate(S):
     c.setFont("Helvetica-Bold", BODY)
     c.setFillColorRGB(0.1,0.1,0.2)
     for ft in cfacts:
-        if ry < BLEED + M + 40: break
+        if ry < BLEED + M: break
         c.drawString(rx, ry, ft)
         ry -= BODY * 1.4
 
-    ry -= 10
+    ry -= 6
 
     # ===== STADIUM FACTS =====
-    # Only draw stadium section if we have room
-    if ry > BLEED + M + 80:
-        box(c, rx, ry-1, rw, HEAD*1.35+4)
-        c.setFont("Helvetica-Bold", HEAD)
-        c.setFillColorRGB(1,1,1)
-        c.drawString(rx, ry, "🏟️ STADIUM FACTS")
-        ry -= HEAD * 1.3
+    box(c, rx, ry-1, rw, HEAD*1.35+4)
+    c.setFont("Helvetica-Bold", HEAD)
+    c.setFillColorRGB(1,1,1)
+    c.drawString(rx, ry, "🏟️ STADIUM FACTS")
+    ry -= HEAD * 1.3
 
-        c.setFont("Helvetica-Bold", BODY)
-        c.setFillColorRGB(0.1,0.1,0.2)
-        for ft in sfacts:
-            if ry < BLEED + M: break
-            c.drawString(rx, ry, ft)
-            ry -= BODY * 1.4
+    c.setFont("Helvetica-Bold", BODY)
+    c.setFillColorRGB(0.1,0.1,0.2)
+    for ft in sfacts:
+        if ry < BLEED + M: break
+        c.drawString(rx, ry, ft)
+        ry -= BODY * 1.4
 
     # Footer
     c.setFont("Helvetica-Bold", TINY)
@@ -242,19 +240,18 @@ for idx, s in enumerate(S):
     ry2 -= 2*(bh+8) + 15
 
     # Fun facts
-    if ry2 > BLEED + M + 40:
-        box(c, rx2, ry2-1, rw2, HEAD*1.35+4)
-        c.setFont("Helvetica-Bold", HEAD)
-        c.setFillColorRGB(1,1,1)
-        c.drawString(rx2, ry2, "🔥 FUN FACTS")
-        ry2 -= HEAD * 1.3
+    box(c, rx2, ry2-1, rw2, HEAD*1.35+4)
+    c.setFont("Helvetica-Bold", HEAD)
+    c.setFillColorRGB(1,1,1)
+    c.drawString(rx2, ry2, "🔥 FUN FACTS")
+    ry2 -= HEAD * 1.3
 
-        c.setFont("Helvetica-Bold", BODY)
-        c.setFillColorRGB(0.1,0.1,0.2)
-        for ff in pfun:
-            if ry2 < BLEED + M: break
-            c.drawString(rx2, ry2, f"• {ff}")
-            ry2 -= BODY * 1.4
+    c.setFont("Helvetica-Bold", BODY)
+    c.setFillColorRGB(0.1,0.1,0.2)
+    for ff in pfun:
+        if ry2 < BLEED + M: break
+        c.drawString(rx2, ry2, f"• {ff}")
+        ry2 -= BODY * 1.4
 
     # Footer
     c.setFont("Helvetica-Bold", TINY)
