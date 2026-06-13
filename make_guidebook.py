@@ -212,17 +212,17 @@ for idx, s in enumerate(S):
     # Stat badges in a row
     st = [("🇺🇳 Caps", pcaps), ("⚽ Goals", pgls), ("🎯 Position", ppos), ("🏟️ Club", pclub.split()[-1])]
     bw2 = tw*0.22
-    bh2 = 26
+    bh2 = 36  # taller boxes so text isn't cut off
     for si, (lb, vl) in enumerate(st):
         bx = tx + si*(bw2+5)
         c.setFillColorRGB(0.06,0.06,0.3)
         c.roundRect(bx, ty-bh2+4, bw2, bh2, 4, fill=1, stroke=0)
-        c.setFont("Helvetica-Bold", 12)
+        c.setFont("Helvetica-Bold", 13)
         c.setFillColorRGB(1,1,1)
-        c.drawCentredString(bx+bw2/2, ty-bh2/2+4, str(vl))
-        c.setFont("Helvetica-Bold", 7)
-        c.drawCentredString(bx+bw2/2, ty-bh2/2-9, lb)
-    ty -= bh2 + 34  # +10px spacing to avoid overlap with FUN FACTS
+        c.drawCentredString(bx+bw2/2, ty-bh2/2+10, str(vl))  # upper portion, above center
+        c.setFont("Helvetica-Bold", 8)
+        c.drawCentredString(bx+bw2/2, ty-bh2/2-6, lb)  # lower portion, below center
+    ty -= bh2 + 24  # spacing to FUN FACTS header
 
     c.setFillColorRGB(0.06,0.06,0.3)
     c.roundRect(tx-2, ty-2, tw+4, 22, 4, fill=1, stroke=0)
