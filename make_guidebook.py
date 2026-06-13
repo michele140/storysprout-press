@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """WC 2026 Souvenir Guidebook - 2-column grid facts with category sections."""
-import os, re
+import os, re, unicodedata
 from PIL import Image
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
@@ -39,8 +39,10 @@ def place_full(p):
         c.drawImage(t,0,0,PW,PH)
 
 def strip_cat(t):
-    """Strip [CATEGORY] prefix from text, keep emoji and rest."""
-    return re.sub(r'^\[[^\]]+\]\s*', '', t)
+    """Strip [CATEGORY] prefix and emoji/special characters. Keep ASCII + accented Latin for Helvetica."""
+    t = re.sub(r'^\[[^\]]+\]\s*', '', t)
+    # Remove emoji + special chars (bullets, arrows, etc) - Helvetica can't render these
+    return re.sub(r'[^\x20-\x7E\x80-\xFF\u00C0-\u024F\u1E00-\u1EFF\u2010-\u2018\u2019\u201C\u201D\u2026]', '', t)
 
 def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3), card_color=(0.95,0.96,1.0)):
     """Draw a category section: colored header bar + 4 facts in 2x2 card grid.
@@ -82,9 +84,11 @@ def draw_category_section(tx, ty, tw, title, facts, header_color=(0.06,0.06,0.3)
             c.setFillColorRGB(*card_color)
             c.roundRect(cx, row_y-card_h+2, col_w, card_h, 4, fill=1, stroke=0)
             
-            # Draw all wrapped lines inside the card
+            # Draw all wrapped lines inside the card - pure black text
             for li, line in enumerate(lines):
-                c.drawString(cx+3, row_y - card_h + 6 + li*13, line)
+                if line.strip():
+                    c.setFillColorRGB(0,0,0)
+                    c.drawString(cx+3, row_y - card_h + 6 + li*13, line)
     
     ty -= 2 * (card_h + gap) - gap + 4
     
@@ -436,11 +440,11 @@ for idx, s in enumerate(S):
     
     c.setFont("Helvetica-Bold", TTL)
     c.setFillColorRGB(0.05,0.05,0.3)
-    c.drawString(tx, ty, f"#{idx+1}  {name}  •  {nick}")
+    c.drawString(tx, ty, f"#{idx+1}  {name}  *  {nick}")
     ty -= 28
     c.setFont("Helvetica-Bold", 13)
     c.setFillColorRGB(0.4,0.4,0.4)
-    c.drawString(tx, ty, f"📍 {city}")
+    c.drawString(tx, ty, f"{city}")
     ty -= 8
     
     c.setStrokeColorRGB(0.06,0.06,0.3)
@@ -450,9 +454,9 @@ for idx, s in enumerate(S):
     
     # 3 category sections: CITY, STADIUM, WOW
     cat_config = [
-        ("🏙️  CITY SPOTLIGHT", cfacts[:4], (0.06,0.06,0.3)),
-        ("🏟️  STADIUM FACTS", cfacts[4:8], (0.06,0.06,0.3)),
-        ("🌟  WOW MOMENTS", cfacts[8:12], (0.06,0.06,0.3)),
+        ("CITY SPOTLIGHT", cfacts[:4], (0.06,0.06,0.3)),
+        ("STADIUM FACTS", cfacts[4:8], (0.06,0.06,0.3)),
+        ("WOW MOMENTS", cfacts[8:12], (0.06,0.06,0.3)),
     ]
     for title, facts, hcolor in cat_config:
         if ty < BLEED + 30: break
@@ -481,15 +485,15 @@ for idx, s in enumerate(S):
     
     c.setFont("Helvetica-Bold", TTL)
     c.setFillColorRGB(0.05,0.05,0.3)
-    c.drawString(tx, ty, "⭐  Player Profile")
+    c.drawString(tx, ty, "Player Profile")
     ty -= 28
     c.setFont("Helvetica-Bold", 16)
     c.setFillColorRGB(0.05,0.05,0.3)
-    c.drawString(tx, ty, f"{pname}  •  {pcountry}")
+    c.drawString(tx, ty, f"{pname}  |  {pcountry}")
     ty -= 18
     c.setFont("Helvetica-Bold", 12)
     c.setFillColorRGB(0.4,0.4,0.4)
-    c.drawString(tx, ty, f"{ppos}  •  {pclub}")
+    c.drawString(tx, ty, f"{ppos}  |  {pclub}")
     ty -= 8
     
     c.setStrokeColorRGB(0.06,0.06,0.3)
@@ -499,9 +503,9 @@ for idx, s in enumerate(S):
     
     # 3 category sections: CAREER, ACHIEVEMENTS, EXTRA
     player_cats = [
-        ("⚽  CAREER", pfacts[:4], (0.06,0.06,0.3)),
-        ("🏆  ACHIEVEMENTS", pfacts[4:8], (0.06,0.06,0.3)),
-        ("🎯  EXTRA", pfacts[8:12], (0.06,0.06,0.3)),
+        ("CAREER", pfacts[:4], (0.06,0.06,0.3)),
+        ("ACHIEVEMENTS", pfacts[4:8], (0.06,0.06,0.3)),
+        ("EXTRA", pfacts[8:12], (0.06,0.06,0.3)),
     ]
     for title, facts, hcolor in player_cats:
         if ty < BLEED + 30: break
@@ -525,7 +529,7 @@ c.showPage()
 c.setFillColorRGB(0.98,0.98,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
 c.setFont("Helvetica-Bold", TTL)
 c.setFillColorRGB(0.05,0.05,0.3)
-c.drawCentredString(PW/2, PH-M-25, "World Cup 2026  •  By The Numbers")
+c.drawCentredString(PW/2, PH-M-25, "World Cup 2026 - By The Numbers")
 ty = PH - M - 55
 stats_data = [
     ("48 Nations","Most teams ever"), ("104 Matches","Record-breaking games"),
