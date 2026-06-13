@@ -109,11 +109,21 @@ for idx, s in enumerate(S):
     # ----- PAGE 1: STADIUM PAGE (photo banner top, text below) -----
     c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
     
-    # TOP: 2 photos side by side across the page
+    # TOP: 2 photos side by side — stadium + city landmark
     pw2 = TRIM_W / 2.0
     ph2 = TRIM_H * 0.38
     place_photo(D+'/'+simg, BLEED, BLEED + TRIM_H - ph2, pw2, ph2)
-    place_photo(D+'/'+pimg, BLEED + pw2, BLEED + TRIM_H - ph2, pw2, ph2)
+    # City landmark photo
+    city_photos = ["","city-01-newyork.png","city-02-philadelphia.png","city-03-washington-dc.png",
+                   "city-04-miami.png","city-05-atlanta.png","city-06-houston.png",
+                   "city-07-dallas.png","city-08-losangeles.png","city-09-sanfrancisco.png",
+                   "city-10-seattle.png","city-11-boston.png"]
+    cimg = D+'/landmarks/'+city_photos[idx+1] if idx+1 < len(city_photos) else None
+    if cimg and os.path.exists(cimg):
+        place_photo(cimg, BLEED + pw2, BLEED + TRIM_H - ph2, pw2, ph2)
+    else:
+        # Fallback: use stadium image again
+        place_photo(D+'/'+simg, BLEED + pw2, BLEED + TRIM_H - ph2, pw2, ph2)
     
     # Text area below photos
     tx = BLEED + 15
@@ -164,7 +174,16 @@ for idx, s in enumerate(S):
     # ----- PAGE 2: PLAYER PAGE (photo banner top, text below) -----
     c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
     place_photo(D+'/'+pimg, BLEED, BLEED + TRIM_H - ph2, pw2, ph2)
-    place_photo(D+'/'+simg, BLEED + pw2, BLEED + TRIM_H - ph2, pw2, ph2)
+    # Club logo
+    club_logos = ["club-01-milan.png","club-02-madrid.png","club-03-bayern.png","club-04-intermiami.png",
+                  "club-05-realmadrid2.png","club-06-galatasaray.png","club-07-tottenham.png",
+                  "club-08-alnassr.png","club-09-mancity.png","club-10-liverpool.png","club-11-psg.png"]
+    cld = '/home/team/shared/wc2026-club-illustrations'
+    climg = cld+'/'+club_logos[idx] if idx < len(club_logos) else None
+    if climg and os.path.exists(climg):
+        place_photo(climg, BLEED + pw2, BLEED + TRIM_H - ph2, pw2, ph2)
+    else:
+        place_photo(D+'/'+simg, BLEED + pw2, BLEED + TRIM_H - ph2, pw2, ph2)
     
     c.setFillColorRGB(0.95,0.96,1.0)
     c.roundRect(BLEED+8, BLEED+10, TRIM_W-16, TRIM_H - ph2 - 35, 10, fill=1, stroke=0)
