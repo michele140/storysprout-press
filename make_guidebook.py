@@ -391,7 +391,7 @@ c.showPage()
 # ============================================================
 # PAGES 3-24: 11 STADIUM SPREADS (2 pages each)
 # ============================================================
-ph2 = TRIM_H * 0.38
+ph2 = TRIM_H * 0.22
 pw2 = TRIM_W / 2.0
 
 city_photos = ["","city-01-newyork.png","city-02-philadelphia.png","city-03-washington-dc.png",
