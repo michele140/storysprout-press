@@ -176,7 +176,7 @@ for idx, s in enumerate(S):
         c.drawString(rx, ry, ft)
         ry -= BODY * 1.4
 
-    ry -= 6
+    ry -= 18
 
     # ===== STADIUM FACTS =====
     c.setFillColorRGB(0.08,0.08,0.35)
