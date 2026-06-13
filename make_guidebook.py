@@ -9,19 +9,36 @@ TMP='/home/team/shared/.tmp_build';os.makedirs(TMP,exist_ok=True)
 D='/home/team/shared/wc2026-guidebook-illustrations'
 O='/home/team/shared/wc2026-guidebook-kdp.pdf'
 
-PW=8.75*inch; PH=11.25*inch  # 8.5x11 + bleed
+PW=8.75*inch; PH=11.25*inch
 TRIM_W=8.5*inch; TRIM_H=11.0*inch; BLEED=0.125*inch
 M=0.5*inch
 
 c=canvas.Canvas(O,pagesize=(PW,PH),pageCompression=1)
 
-def place(p,x,y,w,h):
+def place_photo(p,x,y,box_w,box_h):
+    """Place image maintaining aspect ratio, centered in box, with white background."""
+    if not p or not os.path.exists(p): return
+    i=Image.open(p).convert('RGB')
+    iw, ih = i.size
+    # Scale to fit within box_w x box_h maintaining aspect ratio
+    scale = min(box_w/iw, box_h/ih)
+    nw, nh = int(iw*scale), int(ih*scale)
+    i=i.resize((nw,nh),Image.LANCZOS)
+    t=os.path.join(TMP,os.path.basename(p).replace('.png','.jpg'))
+    i.save(t,'JPEG',quality=92)
+    # Center in the box
+    cx = x + (box_w - nw)/2
+    cy = y + (box_h - nh)/2
+    c.drawImage(t, cx, cy, nw, nh)
+
+def place_full(p):
+    """Full-bleed page image."""
     if p and os.path.exists(p):
         i=Image.open(p).convert('RGB')
-        i=i.resize((int(w),int(h)),Image.LANCZOS)
+        i=i.resize((int(PW),int(PH)),Image.LANCZOS)
         t=os.path.join(TMP,os.path.basename(p).replace('.png','.jpg'))
         i.save(t,'JPEG',quality=92)
-        c.drawImage(t,x,y,w,h)
+        c.drawImage(t,0,0,PW,PH)
 
 # === DATA: 11 stadiums ===
 S=[
@@ -74,13 +91,13 @@ S=[
 # ============================================================
 # PAGE 1: COVER
 # ============================================================
-place(D+'/front-cover.png',0,0,PW,PH)
+place_full(D+'/front-cover.png')
 c.showPage()
 
 # ============================================================
 # PAGE 2: WORLD CUP HISTORY
 # ============================================================
-place(D+'/section-world-cup-history.png',0,0,PW,PH)
+place_full(D+'/section-world-cup-history.png')
 c.showPage()
 
 # ============================================================
@@ -91,8 +108,10 @@ for idx, s in enumerate(S):
     
     # ----- PAGE 1: STADIUM PAGE (photo left, facts fill right) -----
     c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
-    # LEFT: full photo
-    place(D+'/'+simg, BLEED, BLEED, TRIM_W*0.50, TRIM_H)
+    # LEFT: photo centered avoiding stretch
+    photo_w = TRIM_W*0.48
+    photo_h = TRIM_H*0.95
+    place_photo(D+'/'+simg, BLEED+8, BLEED+12, photo_w, photo_h)
     # RIGHT: facts column
     rx = BLEED + TRIM_W*0.50 + 18
     rw = TRIM_W*0.50 - 30
@@ -137,7 +156,7 @@ for idx, s in enumerate(S):
     
     # ----- PAGE 2: PLAYER PROFILE (photo left, facts fill right) -----
     c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
-    place(D+'/'+pimg, BLEED, BLEED, TRIM_W*0.50, TRIM_H)
+    place_photo(D+'/'+pimg, BLEED+8, BLEED+12, photo_w, photo_h)
     
     rx = BLEED + TRIM_W*0.50 + 18
     ry = PH - BLEED - 25
@@ -203,13 +222,13 @@ for idx, s in enumerate(S):
 # ============================================================
 # PAGE 25: TECH & STATS
 # ============================================================
-place(D+'/section-stats-tech.png',0,0,PW,PH)
+place_full(D+'/section-stats-tech.png')
 c.showPage()
 
 # ============================================================
 # PAGE 26: STATS PAGE
 # ============================================================
-place(D+'/back-cover.png',0,0,PW,PH)
+place_full(D+'/back-cover.png')
 c.showPage()
 
 c.save()
