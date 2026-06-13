@@ -512,11 +512,16 @@ c.showPage()
 # ============================================================
 # PAGE 26: STATS PAGE
 # ============================================================
-c.setFillColorRGB(0.98,0.98,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
-c.setFont("Helvetica-Bold", TTL)
-c.setFillColorRGB(0.05,0.05,0.3)
-c.drawCentredString(PW/2, PH-M-25, "World Cup 2026 - By The Numbers")
-ty = PH - M - 55
+c.setFillColorRGB(0.05,0.05,0.12);c.rect(0,0,PW,PH,fill=1,stroke=0)
+
+# Title with decorative line
+c.setFont("Helvetica-Bold", 24)
+c.setFillColorRGB(1,1,1)
+c.drawCentredString(PW/2, PH-M-20, "World Cup 2026  *  By The Numbers")
+c.setStrokeColorRGB(1,1,1)
+c.setLineWidth(0.5)
+c.line(PW/2-120, PH-M-35, PW/2+120, PH-M-35)
+
 stats_data = [
     ("48 Nations","Most teams ever"), ("104 Matches","Record-breaking games"),
     ("16 Host Cities","USA, Mexico, Canada"), ("11 Stadium Giants","Unique personalities"),
@@ -524,17 +529,46 @@ stats_data = [
     ("40,000 Tons","Steel in MetLife"), ("11,000+ Solar Panels","Power at The Linc"),
     ("160 ft Video Board","AT&T's giant screen"), ("8 Min Roof Open","Mercedes-Benz halo"),
     ("70,000+ Avg Capacity","Across all 11"), ("$5.5B Stadium","SoFi cost"),
+    ("5.8 Million", "Total tickets available"), ("1 Million+", "Fans visiting from abroad"),
+    ("60,000+", "Helpful volunteers on site"), ("40+ Languages", "Broadcast to the world"),
+    ("$440 Million", "2022 total prize pool"), ("10,000+", "Media and news reporters"),
+    ("$14 Billion", "Boost to host economy"), ("1,200+ Players", "Star athletes in action"),
 ]
-cols=3; cw=(TRIM_W-40)/cols
-for i,(sname,sval) in enumerate(stats_data):
-    col=i%cols; row=i//cols
-    x=BLEED+15+col*cw; y=ty-row*46
-    c.setFont("Helvetica-Bold",14)
-    c.setFillColorRGB(0.05,0.05,0.3)
-    c.drawString(x,y,sname)
-    c.setFont("Helvetica-Bold",10)
-    c.setFillColorRGB(0.3,0.3,0.3)
-    c.drawString(x,y-17,sval)
+
+cols = 3
+gap = 8
+card_w = (TRIM_W - (cols-1)*gap - 30) / cols
+card_h = 52
+start_x = BLEED + 15
+start_y = PH - M - 65
+
+card_colors = [
+    (0.22, 0.42, 0.78),  # blue
+    (0.85, 0.25, 0.22),  # red
+    (0.15, 0.65, 0.30),  # green
+    (0.90, 0.55, 0.10),  # orange
+]
+
+for i, (stat, desc) in enumerate(stats_data):
+    col = i % cols
+    row = i // cols
+    x = start_x + col * (card_w + gap)
+    y = start_y - row * (card_h + gap)
+    color = card_colors[i % len(card_colors)]
+    
+    # Colored card background
+    c.setFillColorRGB(*color)
+    c.roundRect(x, y-card_h+2, card_w, card_h, 6, fill=1, stroke=0)
+    
+    # Stat number - large and bold
+    c.setFont("Helvetica-Bold", 18)
+    c.setFillColorRGB(1, 1, 1)
+    c.drawCentredString(x + card_w/2, y - card_h/2 + 8, stat)
+    
+    # Description - smaller
+    c.setFont("Helvetica-Bold", 9)
+    c.setFillColorRGB(0.9, 0.9, 1)
+    c.drawCentredString(x + card_w/2, y - card_h/2 - 10, desc)
 
 c.setFont("Helvetica-Bold", TNY)
 c.setFillColorRGB(0.5,0.5,0.5)
