@@ -663,7 +663,7 @@ c.setStrokeColorRGB(0.06,0.06,0.3);c.setLineWidth(1)
 c.line(PW/2-120,PH-M-34,PW/2+120,PH-M-34)
 
 lx=BLEED+15; full_w=TRIM_W-30
-mid=PH/2
+mid=PH/2-30
 
 # Round labels
 rounds_lbl=[("ROUND OF 32",0.02,0.18,CARD_COLORS[0]),("ROUND OF 16",0.20,0.18,CARD_COLORS[1]),
