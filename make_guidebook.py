@@ -636,13 +636,13 @@ def draw_group_card(tx, ty, card_w, gname, color_idx):
 
 # PAGE 27: ALL 12 GROUPS A-L (6 rows x 2 cols)
 c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
-tx=BLEED+15; ty=PH-BLEED-15; tw=TRIM_W-30
+tx=BLEED+15; ty=PH-BLEED-30; tw=TRIM_W-30
 c.setFont("Helvetica-Bold",18)
 c.setFillColorRGB(0.05,0.05,0.3)
 c.drawCentredString(PW/2,ty,"GROUP STAGE TRACKER (A-L)")
 c.setStrokeColorRGB(0.06,0.06,0.3);c.setLineWidth(1)
 c.line(PW/2-110,ty-12,PW/2+110,ty-12)
-ty-=32
+ty-=35
 card_w=(tw-6)/2
 for gi in range(12):
     row=gi//2; col=gi%2
