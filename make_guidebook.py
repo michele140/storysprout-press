@@ -593,13 +593,174 @@ c.drawRightString(PW-BLEED-15, BLEED+8, "Stats & Records")
 c.showPage()
 
 # ============================================================
-# PAGE 27: BACK COVER
+# PAGES 27-30: INTERACTIVE TRACKER PAGES
+# ============================================================
+
+def draw_tracker_group_table(tx, ty, tw, group_name, teams):
+    """Draw a group table: 4 teams with W/D/L/PTS columns."""
+    col_w = tw // 2
+    c.setFillColorRGB(0.06,0.06,0.3)
+    c.roundRect(tx, ty-16, col_w, 16, 3, fill=1, stroke=0)
+    c.setFont("Helvetica-Bold", 10)
+    c.setFillColorRGB(1,1,1)
+    c.drawString(tx+4, ty-13, f"Group {group_name}")
+    ty -= 18
+    c.setFont("Helvetica-Bold", 7)
+    c.setFillColorRGB(0.3,0.3,0.3)
+    c.drawString(tx+2, ty-1, "TEAM")
+    c.drawString(tx+col_w-48, ty-1, "W")
+    c.drawString(tx+col_w-38, ty-1, "D")
+    c.drawString(tx+col_w-28, ty-1, "L")
+    c.drawString(tx+col_w-14, ty-1, "PTS")
+    ty -= 11
+    for i, team in enumerate(teams):
+        y = ty - i * 14
+        c.setFont("Helvetica-Bold", 8)
+        c.setFillColorRGB(0.1,0.1,0.2)
+        c.drawString(tx+2, y, f"{i+1}. {team}")
+        for bi in range(4):
+            bx = tx + col_w - 52 + bi * 12
+            c.setStrokeColorRGB(0.5,0.5,0.5)
+            c.setLineWidth(0.5)
+            c.line(bx, y-1, bx+8, y-1)
+    return ty - 4
+
+groups = ["A","B","C","D","E","F","G","H","I","J","K","L"]
+
+# PAGE 27: Groups A-F
+c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
+tx = BLEED + 15; ty = PH - BLEED - 15; tw = TRIM_W - 30
+c.setFont("Helvetica-Bold", 18)
+c.setFillColorRGB(0.05,0.05,0.3)
+c.drawCentredString(PW/2, ty, "GROUP STAGE TRACKER (A-F)")
+c.setStrokeColorRGB(0.06,0.06,0.3); c.setLineWidth(1)
+c.line(PW/2-100, ty-12, PW/2+100, ty-12)
+ty -= 30
+for gi in range(6):
+    row = gi // 2; col = gi % 2
+    gx = tx + col * (tw//2 + 5); gy = ty - row * 72
+    draw_tracker_group_table(gx, gy, tw, groups[gi], ["________"]*4)
+c.setFont("Helvetica-Bold", TNY)
+c.setFillColorRGB(0.5,0.5,0.5)
+c.drawString(BLEED+15, BLEED+8, "WORLD CUP 2026 SOUVENIR GUIDEBOOK")
+c.drawRightString(PW-BLEED-15, BLEED+8, "Groups A-F")
+c.showPage()
+
+# PAGE 28: Groups G-L
+c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
+c.setFont("Helvetica-Bold", 18)
+c.setFillColorRGB(0.05,0.05,0.3)
+c.drawCentredString(PW/2, ty, "GROUP STAGE TRACKER (G-L)")
+c.setStrokeColorRGB(0.06,0.06,0.3); c.setLineWidth(1)
+c.line(PW/2-100, ty-12, PW/2+100, ty-12)
+ty -= 30
+for gi in range(6, 12):
+    row = (gi-6)//2; col = (gi-6)%2
+    gx = tx + col * (tw//2 + 5); gy = ty - row * 72
+    draw_tracker_group_table(gx, gy, tw, groups[gi], ["________"]*4)
+c.setFont("Helvetica-Bold", TNY)
+c.setFillColorRGB(0.5,0.5,0.5)
+c.drawString(BLEED+15, BLEED+8, "WORLD CUP 2026 SOUVENIR GUIDEBOOK")
+c.drawRightString(PW-BLEED-15, BLEED+8, "Groups G-L")
+c.showPage()
+
+# PAGE 29: Knockout Bracket
+c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
+c.setFont("Helvetica-Bold", 18)
+c.setFillColorRGB(0.05,0.05,0.3)
+c.drawCentredString(PW/2, PH-M-20, "THE KNOCKOUT BRACKET")
+c.setStrokeColorRGB(0.06,0.06,0.3); c.setLineWidth(1)
+c.line(PW/2-120, PH-M-34, PW/2+120, PH-M-34)
+
+mid_y = PH/2; left_x = BLEED+25; right_x = PW-BLEED-25
+c.setStrokeColorRGB(0.3,0.3,0.3); c.setLineWidth(0.7)
+
+# Draw 8 match slots (left side)
+for i, yo in enumerate([-130, -115, -90, -75, -40, -25, 0, 15, 55, 70, 95, 110, 135, 150, 175, 190]):
+    yy = mid_y + (yo if i%2==0 else yo)
+    c.line(left_x, yy, left_x+60, yy)
+    if i % 2 == 0:
+        c.setFont("Helvetica-Bold", 6)
+        c.setFillColorRGB(0.4,0.4,0.4)
+        c.drawString(left_x+2, yy-10, f"Match {i//2+1}")
+
+# Show simple bracket structure with labels
+rd = [("ROUND OF 16", left_x, "R16"), ("QUARTER-FINALS", left_x+140, "QF"),
+      ("SEMI-FINALS", left_x+250, "SF"), ("FINAL", left_x+350, "FIN"),
+      ("CHAMPION", left_x+420, "CHAMP")]
+for label, rx, short in rd:
+    c.setFont("Helvetica-Bold", 7)
+    c.setFillColorRGB(0.05,0.05,0.3)
+    c.drawString(rx, mid_y-110, label)
+    c.line(rx, mid_y, rx+50, mid_y)
+
+c.setFont("Helvetica-Bold", TNY)
+c.setFillColorRGB(0.5,0.5,0.5)
+c.drawString(BLEED+15, BLEED+8, "WORLD CUP 2026 SOUVENIR GUIDEBOOK")
+c.drawRightString(PW-BLEED-15, BLEED+8, "Knockout Bracket")
+c.showPage()
+
+# PAGE 30: My Predictions & Notes
+c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
+ty = PH - M - 15
+c.setFont("Helvetica-Bold", 20)
+c.setFillColorRGB(0.05,0.05,0.3)
+c.drawCentredString(PW/2, ty, "MY WORLD CUP PREDICTIONS")
+c.setStrokeColorRGB(0.06,0.06,0.3); c.setLineWidth(1)
+c.line(PW/2-130, ty-14, PW/2+130, ty-14)
+ty -= 30
+
+for label in ["CHAMPION PICK:", "TOP SCORER (GOLDEN BOOT):", "TEAM I'M ROOTING FOR:"]:
+    c.setFont("Helvetica-Bold", 11)
+    c.setFillColorRGB(0.1,0.1,0.2)
+    c.drawString(tx, ty, label); ty -= 16
+    c.setStrokeColorRGB(0.5,0.5,0.5); c.setLineWidth(0.5)
+    c.line(tx, ty, tx+tw, ty); ty -= 22
+
+ty -= 4
+c.setFillColorRGB(0.06,0.06,0.3)
+c.roundRect(tx-4, ty-3, tw+8, 16, 3, fill=1, stroke=0)
+c.setFont("Helvetica-Bold", 10)
+c.setFillColorRGB(1,1,1)
+c.drawString(tx, ty-1, "TOURNAMENT AWARDS")
+ty -= 24
+
+for label in ["BEST MATCH:", "BIGGEST UPSET:", "MOST GOALS IN A GAME:"]:
+    c.setFont("Helvetica-Bold", 11)
+    c.setFillColorRGB(0.1,0.1,0.2)
+    c.drawString(tx, ty, label); ty -= 16
+    c.setStrokeColorRGB(0.5,0.5,0.5); c.setLineWidth(0.5)
+    c.line(tx, ty, tx+tw, ty); ty -= 22
+
+ty -= 4
+c.setFillColorRGB(0.06,0.06,0.3)
+c.roundRect(tx-4, ty-3, tw+8, 16, 3, fill=1, stroke=0)
+c.setFont("Helvetica-Bold", 10)
+c.setFillColorRGB(1,1,1)
+c.drawString(tx, ty-1, "MY SOCCER JOURNAL")
+ty -= 18
+c.setFont("Helvetica-Bold", 7)
+c.setFillColorRGB(0.5,0.5,0.5)
+c.drawString(tx, ty, "(Notes, memories, and fun facts!)")
+ty -= 16
+
+for _ in range(8):
+    c.setStrokeColorRGB(0.7,0.7,0.7); c.setLineWidth(0.5)
+    c.line(tx, ty, tx+tw, ty); ty -= 18
+
+c.setFont("Helvetica-Bold", TNY)
+c.setFillColorRGB(0.5,0.5,0.5)
+c.drawString(BLEED+15, BLEED+8, "WORLD CUP 2026 SOUVENIR GUIDEBOOK")
+c.drawRightString(PW-BLEED-15, BLEED+8, "My Predictions")
+c.showPage()
+
+# ============================================================
 # ============================================================
 place_full(D+'/back-cover.png')
 c.showPage()
 
 c.save()
 sz=os.path.getsize(O)/(1024*1024)
-print(f"✅ Guidebook saved: {O} ({sz:.1f} MB, 27 pages)")
-print(f"   New: 2-column grid layout with category sections + card backgrounds")
+print(f"✅ Guidebook saved: {O} ({sz:.1f} MB, 31 pages)")
+print(f"   Interactive tracker pages: Groups A-F, Groups G-L, Knockout Bracket, Predictions")
 print(f"   Stadiums: CITY | STADIUM | WOW  | Players: CAREER | ACHIEVEMENTS | EXTRA")
