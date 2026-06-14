@@ -379,56 +379,33 @@ S=[
 # ============================================================
 # PAGE 1: COVER
 # ============================================================
-# PAGE 1: FRONT COVER - Programmatic design matching inside aesthetic
-c.setFillColorRGB(0.05,0.05,0.3);c.rect(0,0,PW,PH,fill=1,stroke=0)  # Dark navy
+# PAGE 1: FRONT COVER - New back cover image with title overlay
+place_full(D+'/back-cover.png')
 
-# Large white card in center
-card_w=TRIM_W-60; card_h=250; cx=BLEED+30; cy=PH/2-card_h/2
-c.setFillColorRGB(1,1,1)
-c.roundRect(cx,cy,card_w,card_h,12,fill=1,stroke=0)
-
-# Accent stripe at bottom of card
-stripe_h=8
-for si,sc in enumerate([(0.22,0.42,0.78),(0.85,0.25,0.22),(0.15,0.65,0.30),(0.90,0.55,0.10)]):
-    sw=card_w/4
-    c.setFillColorRGB(*sc)
-    c.rect(cx+si*sw,cy,sw,stripe_h,fill=1,stroke=0)
+# Dark overlay at top for text readability
+c.setFillColorRGB(0,0,0)
+c.setFillAlpha(0.4)
+c.rect(0,PH-140,PW,140,fill=1,stroke=0)
 
 # Title text
-c.setFont("Helvetica-Bold",36)
-c.setFillColorRGB(0.05,0.05,0.3)
-c.drawCentredString(PW/2,cy+card_h-60,"UNITED IN PLAY")
+c.setFont("Helvetica-Bold",32)
+c.setFillColorRGB(1,1,1)
+c.drawCentredString(PW/2,PH-80,"UNITED IN PLAY")
 
 # Decorative line
-c.setStrokeColorRGB(0.22,0.42,0.78)
-c.setLineWidth(2)
-c.line(PW/2-80,cy+card_h-70,PW/2+80,cy+card_h-70)
+c.setStrokeColorRGB(1,1,1)
+c.setLineWidth(1.5)
+c.line(PW/2-100,PH-95,PW/2+100,PH-95)
 
 # Subtitle
-c.setFont("Helvetica-Bold",14)
-c.setFillColorRGB(0.3,0.3,0.3)
-c.drawCentredString(PW/2,cy+card_h-95,"WORLD CUP 2026 SOUVENIR GUIDEBOOK")
-
-# Small soccer ball icon - simple circle + pentagon
-ball_r=18; bx=PW/2; by=cy+60
-c.setFillColorRGB(0.95,0.95,0.95)
-c.circle(bx,by,ball_r,fill=1,stroke=0)
-c.setStrokeColorRGB(0.3,0.3,0.3)
-c.setLineWidth(1.5)
-c.circle(bx,by,ball_r,fill=0,stroke=1)
-# Pentagon pattern
-pts=[]
-for i in range(5):
-    a=math.radians(-90+i*72)
-    pts.extend([bx+ball_r*0.5*math.cos(a),by+ball_r*0.5*math.sin(a)])
-c.setStrokeColorRGB(0.3,0.3,0.3)
-c.setLineWidth(1)
-c.drawCentredString(bx,by-3,"*")
+c.setFont("Helvetica-Bold",12)
+c.setFillColorRGB(1,1,0.85)
+c.drawCentredString(PW/2,PH-115,"FIFA WORLD CUP 2026 SOUVENIR GUIDEBOOK")
 
 # Bottom text
 c.setFont("Helvetica-Bold",9)
-c.setFillColorRGB(0.6,0.6,0.7)
-c.drawCentredString(PW/2,BLEED+25,"2026 FIFA World Cup  *  USA  *  Mexico  *  Canada")
+c.setFillColorRGB(0.8,0.8,0.9)
+c.drawCentredString(PW/2,BLEED+25,"USA  *  Mexico  *  Canada")
 c.showPage()
 
 # ============================================================
