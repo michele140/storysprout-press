@@ -611,22 +611,22 @@ def draw_group_card(tx, ty, card_w, gname, color_idx):
     c.setFont("Helvetica-Bold", 8)
     c.setFillColorRGB(1,1,1)
     c.drawString(tx+4, ty-13, f"Group {gname}")
-    # Column headers (BELOW header bar, at ty-18)
+    # Column headers (BELOW header bar, clear of rounded corners)
     c.setFont("Helvetica-Bold", 6)
     c.setFillColorRGB(0.3,0.3,0.3)
-    c.drawString(tx+card_w-52, ty-17, "W")
-    c.drawString(tx+card_w-42, ty-17, "D")
-    c.drawString(tx+card_w-32, ty-17, "L")
-    c.drawString(tx+card_w-22, ty-17, "PTS")
+    c.drawString(tx+card_w-52, ty-21, "W")
+    c.drawString(tx+card_w-42, ty-21, "D")
+    c.drawString(tx+card_w-32, ty-21, "L")
+    c.drawString(tx+card_w-22, ty-21, "PTS")
     c.setStrokeColorRGB(0.7,0.7,0.7)
     c.setLineWidth(0.3)
-    c.line(tx+card_w-58, ty-17, tx+card_w-10, ty-17)
+    c.line(tx+card_w-58, ty-21, tx+card_w-10, ty-21)
     # Team rows - pushed down for more room
     for ti in range(4):
-        yy = ty - 24 - ti * 11
+        yy = ty - 28 - ti * 11
         c.setFont("Helvetica-Bold", 7)
         c.setFillColorRGB(0.1,0.1,0.2)
-        c.drawString(tx+3, yy, f"{ti+1}.______________")
+        c.drawString(tx+3, yy, f"{ti+1}.____________________________")
         for bi in range(4):
             bx = tx + card_w - 56 + bi * 10
             c.setStrokeColorRGB(0.5,0.5,0.5)
