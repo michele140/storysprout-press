@@ -599,40 +599,42 @@ c.showPage()
 CARD_COLORS = [(0.22,0.42,0.78),(0.85,0.25,0.22),(0.15,0.65,0.30),(0.90,0.55,0.10)]
 
 def draw_group_card(tx, ty, card_w, gname, color_idx):
-    """Draw a compact group table card with colored header."""
+    """Draw a group table card with colored header."""
     h = CARD_COLORS[color_idx % len(CARD_COLORS)]
-    card_h = 64
+    card_h = 72
     # Card background
     c.setFillColorRGB(0.97,0.97,1.0)
     c.roundRect(tx, ty-card_h+2, card_w, card_h, 4, fill=1, stroke=0)
     # Colored header bar
     c.setFillColorRGB(*h)
     c.roundRect(tx, ty-16, card_w, 16, 4, fill=1, stroke=0)
-    c.roundRect(tx, ty-7, card_w, 7, 4, fill=1, stroke=0)
     c.setFont("Helvetica-Bold", 8)
     c.setFillColorRGB(1,1,1)
     c.drawString(tx+4, ty-13, f"Group {gname}")
-    # Column headers
+    # Column headers (BELOW header bar, at ty-18)
     c.setFont("Helvetica-Bold", 6)
     c.setFillColorRGB(0.3,0.3,0.3)
-    c.drawString(tx+card_w-44, ty-12, "W")
-    c.drawString(tx+card_w-35, ty-12, "D")
-    c.drawString(tx+card_w-26, ty-12, "L")
-    c.drawString(tx+card_w-15, ty-12, "PTS")
-    # Team rows
+    c.drawString(tx+card_w-52, ty-17, "W")
+    c.drawString(tx+card_w-42, ty-17, "D")
+    c.drawString(tx+card_w-32, ty-17, "L")
+    c.drawString(tx+card_w-22, ty-17, "PTS")
+    c.setStrokeColorRGB(0.7,0.7,0.7)
+    c.setLineWidth(0.3)
+    c.line(tx+card_w-58, ty-17, tx+card_w-10, ty-17)
+    # Team rows - pushed down for more room
     for ti in range(4):
-        yy = ty - 20 - ti * 11
+        yy = ty - 24 - ti * 11
         c.setFont("Helvetica-Bold", 7)
         c.setFillColorRGB(0.1,0.1,0.2)
-        c.drawString(tx+3, yy, f"{ti+1}._______")
+        c.drawString(tx+3, yy, f"{ti+1}.______________")
         for bi in range(4):
-            bx = tx + card_w - 48 + bi * 11
+            bx = tx + card_w - 56 + bi * 10
             c.setStrokeColorRGB(0.5,0.5,0.5)
             c.setLineWidth(0.5)
-            c.line(bx, yy-1, bx+7, yy-1)
-    return card_h + 6
+            c.line(bx, yy-1, bx+8, yy-1)
+    return card_h + 4
 
-# PAGE 27: ALL 12 GROUPS A-L (4 rows x 3 cols)
+# PAGE 27: ALL 12 GROUPS A-L (6 rows x 2 cols)
 c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
 tx=BLEED+15; ty=PH-BLEED-15; tw=TRIM_W-30
 c.setFont("Helvetica-Bold",18)
@@ -640,11 +642,11 @@ c.setFillColorRGB(0.05,0.05,0.3)
 c.drawCentredString(PW/2,ty,"GROUP STAGE TRACKER (A-L)")
 c.setStrokeColorRGB(0.06,0.06,0.3);c.setLineWidth(1)
 c.line(PW/2-110,ty-12,PW/2+110,ty-12)
-ty-=28
-card_w=(tw-12)/3
+ty-=32
+card_w=(tw-6)/2
 for gi in range(12):
-    row=gi//3; col=gi%3
-    gx=tx+col*(card_w+6); gy=ty-row*70
+    row=gi//2; col=gi%2
+    gx=tx+col*(card_w+6); gy=ty-row*76
     draw_group_card(gx,gy,card_w,["A","B","C","D","E","F","G","H","I","J","K","L"][gi],gi)
 c.setFont("Helvetica-Bold",TNY)
 c.setFillColorRGB(0.5,0.5,0.5)
