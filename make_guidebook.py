@@ -873,8 +873,61 @@ c.drawRightString(PW-BLEED-15,BLEED+8,"My Predictions")
 c.showPage()
 
 # ============================================================
+# BACK COVER - Programmatic, matches inside aesthetic
 # ============================================================
-place_full(D+'/back-cover.png')
+c.setFillColorRGB(0.05,0.05,0.3);c.rect(0,0,PW,PH,fill=1,stroke=0)
+
+# Stadium lights glow effect at top
+c.setFillColorRGB(0.15,0.15,0.4)
+c.circle(PW/2,PH-80,150,fill=1,stroke=0)
+c.setFillColorRGB(0.1,0.1,0.35)
+c.circle(PW/2,PH-80,100,fill=1,stroke=0)
+
+# Stadium silhouette - crowd rows as stepped rectangles
+stadium_y=PH*0.45
+c.setFillColorRGB(0.02,0.02,0.15)
+# Lower bowl
+for i in range(20):
+    row_w=TRIM_W-60-i*18
+    row_x=BLEED+30+i*9
+    row_y=stadium_y+i*6
+    c.rect(row_x,row_y,row_w,5,fill=1,stroke=0)
+
+# Upper bowl (shorter rows)
+for i in range(12):
+    row_w=TRIM_W-180-i*22
+    row_x=BLEED+90+i*11
+    row_y=stadium_y+120+i*5
+    c.rect(row_x,row_y,row_w,4,fill=1,stroke=0)
+
+# Field (green strip at bottom of stadium)
+c.setFillColorRGB(0.1,0.5,0.15)
+c.rect(BLEED+40,stadium_y-8,TRIM_W-80,8,fill=1,stroke=0)
+
+# Accent color stripe
+for si,sc in enumerate([(0.22,0.42,0.78),(0.85,0.25,0.22),(0.15,0.65,0.30),(0.90,0.55,0.10)]):
+    sw=TRIM_W/4
+    c.setFillColorRGB(*sc)
+    c.rect(BLEED+si*sw,stadium_y-20,sw,5,fill=1,stroke=0)
+
+# Main text
+c.setFont("Helvetica-Bold",22)
+c.setFillColorRGB(1,1,1)
+c.drawCentredString(PW/2,stadium_y+210,"Keep Dreaming.")
+c.setFont("Helvetica-Bold",18)
+c.drawCentredString(PW/2,stadium_y+185,"Keep Playing.")
+c.setFont("Helvetica-Bold",16)
+c.drawCentredString(PW/2,stadium_y+163,"Keep Roaring!")
+
+# Decorative stars
+c.setFont("Helvetica-Bold",10)
+c.setFillColorRGB(0.8,0.8,1.0)
+c.drawCentredString(PW/2,stadium_y+145,"* * *")
+
+# Small text at bottom
+c.setFont("Helvetica-Bold",8)
+c.setFillColorRGB(0.5,0.5,0.7)
+c.drawCentredString(PW/2,BLEED+20,"World Cup 2026  *  USA  *  Mexico  *  Canada")
 c.showPage()
 
 c.save()
