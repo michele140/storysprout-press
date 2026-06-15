@@ -1,0 +1,2 @@
+#!/bin/bash
+cd /home/team/shared && git add wc2026-guidebook-illustrations/landmarks/ make_guidebook.py && python3 make_guidebook.py && git add wc2026-guidebook-kdp.pdf && git commit -m "City landmarks on stadium pages, club logos on player pages" && git push origin main 2>&1 | tail -3

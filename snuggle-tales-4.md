@@ -1,15 +1,15 @@
 # THE SNUGGLE TALES
-## BOOK 4: THE FACTORY HUB & MAGIC DOORS
+## BOOK 4: THE TOY FACTORY HUB & MAGIC DOORS
 
 **FORMAT:** Dork Diaries style — mix of text and black & white illustrations on every page
 **TONE:** First-person, conversational, diary-like. 
-**SETTING:** England (Snuggle-on-the-Hill, The Old Mill)
+**SETTING:** England (Snuggle-on-the-Hill, The Toy Factory)
 
 ---
 
 # [PAGE 1 - TITLE PAGE]
 
-**[ILLUSTRATION: Hand-drawn title in elegant, yarn-like cursive: "THE FACTORY HUB & MAGIC DOORS". Below it: "The Snuggle Tales Book 4: The Finale". Doodles of tea cups, spools of thread, needles, and a golden cat with a crown.]**
+**[ILLUSTRATION: Hand-drawn title in elegant, yarn-like cursive: "THE TOY FACTORY HUB & MAGIC DOORS". Below it: "The Snuggle Tales Book 4: The Finale". Doodles of tea cups, spools of thread, needles, and a golden cat with a crown.]**
 
 **[ILLUSTRATION: The ten friends — Pandy, Dirty, Luna, Daisy, Apricot, Lavender, Hippy, Winky, Layla, and Otis — are standing in a circle in a lush green meadow. They are holding paws/trunks/hooves. In the center, a glowing golden button is floating.]**
 
@@ -55,7 +55,7 @@ Barnaby laughed. "It’s quite alright. I’m made of the same stuff you are, Li
 
 "Wait," Dirty said, her trunk swinging. "If you’re like us... does that mean we all come from here?"
 
-Barnaby nodded toward the village. "Follow me. Your questions are waiting in the Old Mill."
+Barnaby nodded toward the village. "Follow me. Your questions are waiting in the Toy Factory."
 
 ---
 
@@ -81,9 +81,9 @@ The roads are made of smooth river stones. The signs are hand-painted. And there
 
 **[ILLUSTRATION: The group reaches a massive stone building at the edge of a sparkling river. It has a giant wooden waterwheel that is turning slowly. It looks hundreds of years old.]**
 
-"The Old Mill," Barnaby announced. 
+"The Toy Factory," Barnaby announced. 
 
-It didn't look like a factory. It looked like a giant, cozy cottage. Smoke was curling from three different chimneys, and the air smelled like... laundry day and cookies. 
+It didn't look like a regular factory. It looked like a giant, cozy cottage mixed with a castle. Smoke was curling from three different chimneys, and the air smelled like... laundry day and cookies. 
 
 "This is where it happens," Layla whispered. She was holding her journal tight. "The Great Stitching."
 
@@ -91,13 +91,13 @@ It didn't look like a factory. It looked like a giant, cozy cottage. Smoke was c
 
 "My book said the first Smudges were created here," she said. "By the Grand Weaver."
 
-"The Weaver is gone now," Barnaby said, a little sadly. "But the Mill still remembers. And the map you carry, Pandy... it’s the key to the doors."
+"The Weaver is gone now," Barnaby said, a little sadly. "But the Factory still remembers. And the map you carry, Pandy... it’s the key to the doors."
 
 ---
 
 # [PAGE 6]
 
-**[ILLUSTRATION: Barnaby pushing open the massive oak doors of the Mill. A warm, golden light pours out. Inside, the walls are covered in thousands of spools of thread.]**
+**[ILLUSTRATION: Barnaby pushing open the massive oak doors of the Factory. A warm, golden light pours out. Inside, the walls are covered in thousands of spools of thread.]**
 
 We stepped inside. 
 
@@ -117,7 +117,7 @@ I looked up and saw a pattern that looked exactly like... me.
 
 ---
 
-# [PAGE 7 - CHAPTER 2: THE MYSTERY OF THE OLD MILL]
+# [PAGE 7 - CHAPTER 2: THE MYSTERY OF THE TOY FACTORY]
 
 **[ILLUSTRATION: Pandy standing under the pattern that looks like her. It says "MODEL #001: PANDA" in elegant ink.]**
 
@@ -141,11 +141,11 @@ It’s weird. Seeing a drawing of yourself before you were even *you*.
 
 # [PAGE 8]
 
-**[ILLUSTRATION: Barnaby leading the group to the center of the Mill. There is a giant, circular table made of dark wood. In the center is a single, large golden needle stuck into a pin-cushion.]**
+**[ILLUSTRATION: Barnaby leading the group to the center of the Factory. There is a giant, circular table made of dark wood. In the center is a single, large golden needle stuck into a pin-cushion.]**
 
 "The Weaver realized that the world needed more than just one place," Barnaby continued. 
 
-"She used the Mill to create the lands. The Bamboo Forest for you, Pandy. The Savannah for Dirty. The Meadow for Luna."
+"She used the Factory to create the lands. The Bamboo Forest for you, Pandy. The Savannah for Dirty. The Meadow for Luna."
 
 "But why did we all end up in different places?" Daisy asked. 
 
@@ -201,7 +201,7 @@ Each door was made of a different material. One was bamboo. One was golden grass
 
 # [PAGE 11 - CHAPTER 3: THE HALL OF DOORS]
 
-**[ILLUSTRATION: Pandy standing in front of the bamboo door. It has a carving of a panda face on it.]**
+**[ILLUSTRATION: Pandy standing in front of a door made entirely of soft, white pillows. It has a tag that says "JELLYCAT CITY".]**
 
 Dear Diary,
 
@@ -209,11 +209,11 @@ We found them.
 
 The Magic Doors. 
 
-"These lead back to your homes," Barnaby explained. "The Bamboo Forest. The Savannah. Candyland. Alaska."
+"These lead back to your adventures," Barnaby explained. "The **Pillow Door** leads to JellyCat City. The **Candy Door** leads to Candyland. And the **Snowy Door** leads to the Great White North."
 
 "But I don't want to go back!" Luna cried. "I want to stay with everyone!"
 
-"The doors aren't just for going back," Barnaby said. "They’re for connecting. Once they’re open, you can travel between the lands whenever you want."
+"The doors aren't just for going back," Barnaby said. "They’re for connecting. Once they’re open, you can travel between the lands whenever you want. The Factory is your hub."
 
 "Like a global transportation network!" Winky shouted. "The 'Smudge Subway'! We’ll charge by the hop!"
 
@@ -235,11 +235,11 @@ The light from the map shot out in ten different directions, hitting each door.
 
 One by one, the doors started to glow. 
 
-The Bamboo Door opened first. I could see the Silver Stream and my favorite reading rock. 
+The Pillow Door opened first. I could see the Fluff Express and the Great Pillow Palace. 
 
-**[ILLUSTRATION: A view through the bamboo door. It looks peaceful and sunny.]**
+**[ILLUSTRATION: A view through the Pillow Door into JellyCat City. It looks soft and squishy.]**
 
-"Oh," I whispered. "I missed the smell of bamboo."
+"Oh," I whispered. "I missed the smell of laundry detergent."
 
 ---
 
@@ -249,11 +249,11 @@ The Bamboo Door opened first. I could see the Silver Stream and my favorite read
 
 Dirty ran to the Savannah Door. "Look! It’s the mud puddle! The *Good* mud puddle!"
 
-Luna was jumping in and out of the Meadow Door. "Meadow! Hill! Meadow! Hill! I’M IN TWO PLACES AT ONCE!"
+Luna was jumping in and out of the Meadow Door. "Meadow! Factory! Meadow! Factory! I’M IN TWO PLACES AT ONCE!"
 
-**[ILLUSTRATION: Luna’s front half in the meadow and her back half in the Mill basement.]**
+**[ILLUSTRATION: Luna’s front half in the meadow and her back half in the Factory basement.]**
 
-Apricot and Lavender were looking through the Candyland Door. 
+Apricot and Lavender were looking through the **Candy Door**. 
 
 "The Soda Waves are still there!" Apricot cheered. "And the volcanoes aren't erupting!"
 
@@ -263,13 +263,13 @@ Apricot and Lavender were looking through the Candyland Door.
 
 # [PAGE 14]
 
-**[ILLUSTRATION: Layla and Otis standing in front of the Alaska Door. It looks like a cozy window into a snowy world.]**
+**[ILLUSTRATION: Layla and Otis standing in front of the **Snowy Door**. It looks like a cozy window into a snowy world.]**
 
 "The cafe is still standing," Layla said, a tear of joy in her eye. "And the tea is still hot."
 
 "And the ice cream is still frozen!" Otis cheered. 
 
-But they didn't go through. They stayed in the Mill. 
+But they didn't go through. They stayed in the Factory. 
 
 "We’re not going yet," Otis said. "We have a party to plan!"
 
@@ -337,7 +337,7 @@ Winky is "Organizing the Social Tiers" (which mostly means she’s telling every
 
 "Pandy?" Barnaby called out. 
 
-He was standing by the Old Mill door, holding something small and shiny. 
+He was standing by the Factory door, holding something small and shiny. 
 
 ---
 
@@ -381,13 +381,13 @@ The sky over England was green and pink and violet.
 
 # [PAGE 20 - CHAPTER 5: THE FINAL STITCH]
 
-**[ILLUSTRATION: Pandy is sitting at a desk in the Old Mill. She is writing in her diary. The map is framed on the wall behind her.]**
+**[ILLUSTRATION: Pandy is sitting at a desk in the Toy Factory. She is writing in her diary. The map is framed on the wall behind her.]**
 
 Dear Diary,
 
 It’s been a week since the Grand Reunion. 
 
-The doors are open. The village is full of life. And Barnaby has asked me to be the new "Lead Story-Keeper" of the Mill. 
+The doors are open. The village is full of life. And Barnaby has asked me to be the new "Lead Story-Keeper" of the Factory. 
 
 I get to read all the new stories that travelers bring back through the doors. 
 
@@ -403,7 +403,7 @@ And Daisy and Layla are knitting the world’s longest scarf.
 
 # [PAGE 21]
 
-**[ILLUSTRATION: Dirty, Luna, and Daisy walking toward the Mill. They are waving at Pandy.]**
+**[ILLUSTRATION: Dirty, Luna, and Daisy walking toward the Factory. They are waving at Pandy.]**
 
 "Hey Pandy!" Luna shouted. "The door to the 'Starry Sea' just appeared! Do you want to come?"
 
@@ -451,6 +451,7 @@ And that’s the best ending I could ever write.
 8. **Winky** - The CEO. Sassy NYC pig with big plans.
 9. **Layla** - The Sage. Wise bear who knows every story.
 10. **Otis** - The Inventor. Ice-cream genius and professional taster.
+11. **Barnaby** - The Keeper. The golden cat who guards the Magic Doors.
 
 ---
 
@@ -501,16 +502,15 @@ And that’s the best ending I could ever write.
 
 **[PAGE 91-95: FINAL DOODLES AND TEASERS]**
 - A drawing of a mysterious "Starry Door."
-- Pandy’s favorite reading spot in the Mill.
+- Pandy’s favorite reading spot in the Factory.
 - A "Thank You" note from all ten friends.
 - Final page: A photo-style drawing of the group with the caption: "OUR FAMILY."
 
 ---
 
 **[BACK COVER]**
-**[ILLUSTRATION: The ten friends are standing in front of the Old Mill, looking up at the glowing doors. The Golden Cat is sitting on the roof.]**
+**[ILLUSTRATION: The ten friends are standing in front of the Toy Factory, looking up at the glowing doors. The Golden Cat is sitting on the roof.]**
 
 **"THE FINALE IS HERE! DISCOVER THE TRUTH, OPEN THE DOORS, AND FIND YOUR FLUFF!"**
 
 **THE SMUGGLE TALES: HOME AT LAST.**
-
