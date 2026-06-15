@@ -680,124 +680,142 @@ c.drawString(BLEED+15,BLEED+8,"WORLD CUP 2026 SOUVENIR GUIDEBOOK")
 c.drawRightString(PW-BLEED-15,BLEED+8,"Group Stage Tracker")
 c.showPage()
 
-# PAGE 28: Knockout Bracket (traditional tree, R32 -> Champion)
+# PAGE 28: Knockout Bracket - Bilateral Groups converging to Final
 c.setFillColorRGB(1,1,1);c.rect(0,0,PW,PH,fill=1,stroke=0)
-c.setFont("Helvetica-Bold",18)
+c.setFont("Helvetica-Bold",16)
 c.setFillColorRGB(0.05,0.05,0.3)
-c.drawCentredString(PW/2,PH-M-20,"THE KNOCKOUT BRACKET")
+c.drawCentredString(PW/2,PH-M-10,"KNOCKOUT BRACKET - ROUND OF 32")
 c.setStrokeColorRGB(0.06,0.06,0.3);c.setLineWidth(1)
-c.line(PW/2-120,PH-M-34,PW/2+120,PH-M-34)
+c.line(100,PH-M-26,PW-100,PH-M-26)
 
-lx=BLEED+15; full_w=TRIM_W-30; mid=PH/2
-
-# Round labels with colored headers
-rnd_info=[("R32",lx+5,0.13,CARD_COLORS[0]),("R16",lx+full_w*0.15,0.13,CARD_COLORS[1]),
-          ("QF",lx+full_w*0.30,0.13,CARD_COLORS[2]),("SF",lx+full_w*0.46,0.13,CARD_COLORS[3]),
-          ("FINAL",lx+full_w*0.62,0.13,CARD_COLORS[1]),("CHAMP",lx+full_w*0.80,0.14,CARD_COLORS[0])]
-for lbl,cx,rw,clr in rnd_info:
-    c.setFillColorRGB(*clr)
-    c.roundRect(cx,PH-M-55,full_w*rw,16,4,fill=1,stroke=0)
-    c.setFont("Helvetica-Bold",8)
-    c.setFillColorRGB(1,1,1)
-    c.drawCentredString(cx+full_w*rw/2,PH-M-52,lbl)
-
-# Flag color dots
-flag_cols=[(0.2,0.2,0.8),(0.8,0.2,0.2),(0.2,0.6,0.2),(0.9,0.6,0.1)]*4
-
+ty=PH-M-45; sp=21; ml=42
+left_groups=["A1","A2","B1","B2","C1","C2","D1","D2","E1","E2","F1","F2","G1","G2","H1","H2"]
+right_groups=["I1","I2","J1","J2","K1","K2","L1","L2","3A","3B","3C","3D","3E","3F","3G","3H"]
+flag_cols=[(0.2,0.2,0.8),(0.8,0.2,0.2),(0.2,0.6,0.2),(0.9,0.6,0.1)]*8
 c.setStrokeColorRGB(0.3,0.3,0.3);c.setLineWidth(0.5)
-sl=50  # match line length
 
-# Y positions: 32 team lines for R32
-sp=19
-team_y=[mid+(15-i)*sp for i in range(32)]
-r32_pairs=[(team_y[i*2],team_y[i*2+1]) for i in range(16)]  # 16 matches
-
-# R32: 16 match slots with flag color dots
-r32_x=lx+full_w*0.02
-for i in range(32):
-    y=team_y[i]; fc=flag_cols[i%len(flag_cols)]
-    c.setFillColorRGB(*fc)
-    c.circle(r32_x-3,y+1,3,fill=1,stroke=0)
-    c.setStrokeColorRGB(0.3,0.3,0.3);c.setLineWidth(0.5)
-    c.line(r32_x+3,y,r32_x+sl,y)
-    c.setFont("Helvetica-Bold",5)
-    c.setFillColorRGB(0.3,0.3,0.3)
-    if i%2==0: c.drawString(r32_x+4,y-9,f"{i//2+1}.")
-
-# R32 → R16 connections (pairs of 2 → 1)
-r16_x=lx+full_w*0.22
-for pi in range(8):
-    y1=r32_pairs[pi*2][0]; y2=r32_pairs[pi*2+1][1]
-    ym=(y1+y2)/2
-    c.line(r32_x+sl,y1,r32_x+sl,y2)
-    c.line(r32_x+sl,ym,r16_x,ym)
-
-# R16: 8 match slots  
-r16_pairs=[(team_y[i*4],team_y[i*4+3]) for i in range(8)]
-r16_ym=[(p[0]+p[1])/2 for p in r16_pairs]
-for i,ym in enumerate(r16_ym):
-    c.line(r16_x,ym,r16_x+sl,ym)
-    c.line(r16_x,ym-10,r16_x+sl,ym-10)
-    c.setFont("Helvetica-Bold",5)
-    c.setFillColorRGB(0.4,0.4,0.4)
-    c.drawString(r16_x+1,ym-19,f"R16-{i+1}")
-
-# R16 → QF connections
-qf_x=lx+full_w*0.40
-for pi in range(4):
-    y1=r16_ym[pi*2]-10; y2=r16_ym[pi*2+1]
-    ym=(y1+y2)/2
-    c.line(r16_x+sl,y1,r16_x+sl,y2)
-    c.line(r16_x+sl,ym,qf_x,ym)
-
-# QF: 4 match slots
-qf_ym=[(r16_ym[pi*2]-10+r16_ym[pi*2+1])/2 for pi in range(4)]
-for i,ym in enumerate(qf_ym):
-    c.line(qf_x,ym,qf_x+sl,ym)
-    c.line(qf_x,ym-10,qf_x+sl,ym-10)
-    c.setFont("Helvetica-Bold",5)
-    c.setFillColorRGB(0.4,0.4,0.4)
-    c.drawString(qf_x+1,ym-19,f"QF-{i+1}")
-
-# QF → SF connections
-sf_x=lx+full_w*0.58
-for pi in range(2):
-    y1=qf_ym[pi*2]-10; y2=qf_ym[pi*2+1]
-    ym=(y1+y2)/2
-    c.line(qf_x+sl,y1,qf_x+sl,y2)
-    c.line(qf_x+sl,ym,sf_x,ym)
-
-# SF: 2 match slots
-sf_ym=[(qf_ym[pi*2]-10+qf_ym[pi*2+1])/2 for pi in range(2)]
-for i,ym in enumerate(sf_ym):
-    c.line(sf_x,ym,sf_x+sl,ym)
-    c.line(sf_x,ym-10,sf_x+sl,ym-10)
-    c.setFont("Helvetica-Bold",5)
-    c.setFillColorRGB(0.4,0.4,0.4)
-    c.drawString(sf_x+1,ym-19,f"SF-{i+1}")
-
-# SF → Final
-fin_x=lx+full_w*0.76
-y1=sf_ym[0]-10; y2=sf_ym[1]
-ym=(y1+y2)/2
-c.line(sf_x+sl,y1,sf_x+sl,y2)
-c.line(sf_x+sl,ym,fin_x,ym)
-
-# Final
-c.line(fin_x,ym,fin_x+sl,ym)
+# LEFT SIDE: 16 teams with group labels (A1-H2)
+lx=BLEED+20
 c.setFont("Helvetica-Bold",5)
-c.setFillColorRGB(0.4,0.4,0.4)
-c.drawString(fin_x+1,ym-9,"FINAL")
+for i in range(16):
+    y=ty-i*sp
+    # Flag color box
+    c.setFillColorRGB(*flag_cols[i%4])
+    c.rect(lx,y-2,7,7,fill=1,stroke=0)
+    # Group label
+    c.setFillColorRGB(0.05,0.05,0.3)
+    c.drawString(lx+10,y-1,left_groups[i])
+    # Team name line
+    c.line(lx+30,y,lx+50,y)
 
-# Final → Champion
-champ_x=lx+full_w*0.88
-c.line(fin_x+sl,ym,champ_x,ym)
-c.line(champ_x,ym,champ_x+50,ym)
-c.setFont("Helvetica-Bold",9)
+# Left R32 connections to center
+r32_l=lx+50; r16_l=r32_l+ml
+for p in range(16):
+    y1=ty-p*sp
+    c.line(r32_l,y1,r32_l+ml if p%2==1 else r32_l,y1)
+    if p%2==1: c.line(r32_l,y1,r32_l,ty-(p-1)*sp)
+# Pair connections  
+for p in range(8):
+    y1=ty-p*2*sp; y2=ty-(p*2+1)*sp; ym=(y1+y2)/2
+    c.line(r32_l,y1,r32_l,y2);c.line(r32_l,ym,r16_l,ym)
+
+# R16 left slots
+for i in range(8):
+    ym=ty-(i*2+0.5)*sp
+    c.line(r16_l,ym-4,r16_l+ml,ym-4);c.line(r16_l,ym+4,r16_l+ml,ym+4)
+
+# R16 left to QF
+qf_l=r16_l+ml
+for p in range(4):
+    y1=ty-(p*4+0.5)*sp; y2=ty-(p*4+2.5)*sp; ym=(y1+y2)/2
+    c.line(r16_l+ml,y1,r16_l+ml,y2);c.line(r16_l+ml,ym,qf_l,ym)
+
+# RIGHT SIDE: 16 teams with group labels (I1-3H)
+rx=PW-BLEED-20
+for i in range(16):
+    y=ty-i*sp
+    c.setFillColorRGB(*flag_cols[(i+2)%4])
+    c.rect(rx-7,y-2,7,7,fill=1,stroke=0)
+    c.setFillColorRGB(0.05,0.05,0.3)
+    c.drawString(rx-30,y-1,right_groups[i])
+    c.line(rx-50,y,rx-30,y)
+
+# Right R32 connections to center
+r32_r=rx-50; r16_r=r32_r-ml
+for p in range(16):
+    y1=ty-p*sp
+    c.line(r32_r-ml if p%2==1 else r32_r,y1,r32_r,y1)
+    if p%2==1: c.line(r32_r,y1,r32_r,ty-(p-1)*sp)
+for p in range(8):
+    y1=ty-p*2*sp; y2=ty-(p*2+1)*sp; ym=(y1+y2)/2
+    c.line(r32_r,y1,r32_r,y2);c.line(r32_r,ym,r16_r,ym)
+
+# R16 right slots
+for i in range(8):
+    ym=ty-(i*2+0.5)*sp
+    c.line(r16_r-ml,ym-4,r16_r,ym-4);c.line(r16_r-ml,ym+4,r16_r,ym+4)
+
+# R16 right to QF
+qf_r=r16_r-ml
+for p in range(4):
+    y1=ty-(p*4+0.5)*sp; y2=ty-(p*4+2.5)*sp; ym=(y1+y2)/2
+    c.line(r16_r,y1,r16_r,y2);c.line(r16_r,ym,qf_r,ym)
+
+# CENTER: QF to SF to Final
+mid=PW/2
+c.setStrokeColorRGB(0.2,0.2,0.2);c.setLineWidth(0.6)
+# QF slots
+for i in range(4):
+    ym=ty-(i*4+1.5)*sp
+    c.line(mid-25,ym-5,mid+25,ym-5);c.line(mid-25,ym+5,mid+25,ym+5)
+    c.setFont("Helvetica-Bold",5);c.setFillColorRGB(0.3,0.3,0.3)
+    c.drawCentredString(mid,ym-14,f"QF-{i+1}")
+
+# QF to SF
+sf_y=[ty-(i*4+1.5)*sp for i in range(4)]
+for p in range(2):
+    y1=sf_y[p*2]-5; y2=sf_y[p*2+1]+5; ym=(y1+y2)/2
+    c.line(mid-25,y1,mid-25,y2);c.line(mid+25,y1,mid+25,y2)
+    c.line(mid-25,ym,mid-12,ym);c.line(mid+25,ym,mid+12,ym)
+
+# SF slots
+for i in range(2):
+    ym=sf_y[i*2]-5+((sf_y[i*2+1]+5)-(sf_y[i*2]-5))/2
+    c.line(mid-12,ym-6,mid+12,ym-6);c.line(mid-12,ym+6,mid+12,ym+6)
+    c.setFont("Helvetica-Bold",6);c.setFillColorRGB(0.3,0.3,0.3)
+    c.drawCentredString(mid,ym-15,f"SF-{i+1}")
+
+# SF to Final
+sf_m=[sf_y[0]-5+((sf_y[1]+5)-(sf_y[0]-5))/2,sf_y[2]-5+((sf_y[3]+5)-(sf_y[2]-5))/2]
+ym_f=(sf_m[0]+sf_m[1])/2
+c.line(mid-12,sf_m[0],mid-12,sf_m[1]);c.line(mid+12,sf_m[0],mid+12,sf_m[1])
+c.line(mid-12,ym_f,mid+12,ym_f)
+
+# FINAL
+c.setStrokeColorRGB(0.85,0.25,0.22);c.setLineWidth(1.5)
+c.line(mid-18,ym_f-8,mid+18,ym_f-8);c.line(mid-18,ym_f+8,mid+18,ym_f+8)
+c.setFont("Helvetica-Bold",8);c.setFillColorRGB(0.85,0.25,0.22)
+c.drawCentredString(mid,ym_f-18,"FINAL")
+
+# Champion trophy
+c.setFont("Helvetica-Bold",9);c.setFillColorRGB(0.85,0.2,0.2)
+c.drawCentredString(mid,ym_f+20,"CHAMPION")
 c.setFillColorRGB(0.85,0.2,0.2)
-c.drawRightString(champ_x+52,ym-6,"CHAMPION")
-c.setFont("Helvetica-Bold",12)
-c.drawRightString(champ_x+52,ym+5,"**")
+c.circle(mid,ym_f+32,6,fill=1,stroke=0)
+c.rect(mid-2,ym_f+22,4,10,fill=1,stroke=0)
+c.rect(mid-5,ym_f+20,10,3,fill=1,stroke=0)
+
+# Round labels
+for lbl,xp,w in [("R32",20,80),("R16",100,50),("QF",175,40),("SF",240,35),("FINAL",300,35)]:
+    cx=BLEED+xp
+    c.setFillColorRGB(*CARD_COLORS[int(xp/80)%4])
+    c.roundRect(cx,PH-M-72,w,12,3,fill=1,stroke=0)
+    c.setFont("Helvetica-Bold",6);c.setFillColorRGB(1,1,1)
+    c.drawCentredString(cx+w/2,PH-M-69,lbl)
+c.setFillColorRGB(*CARD_COLORS[0])
+c.roundRect(PW-100,PH-M-72,40,12,3,fill=1,stroke=0)
+c.setFont("Helvetica-Bold",6);c.setFillColorRGB(1,1,1)
+c.drawCentredString(PW-80,PH-M-69,"CHAMP")
 
 c.setFont("Helvetica-Bold",TNY)
 c.setFillColorRGB(0.5,0.5,0.5)
