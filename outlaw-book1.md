@@ -1,5 +1,9 @@
 # Outlaw: The Great Canyon Crossing
 
+## Dedication
+
+For Samantha — who embodies the strength and determination of Outlaw, along with his stubborn ways. May you always run wild and free. 🐎
+
 ## Chapter 1: The First Frost
 
 The golden sun was dipping low over the horizon, painting the sky in streaks of purple and orange. The tall prairie grass, once green and lush, was now a brittle shade of brown. Outlaw stood alone on the highest point of a rocky ridge. He was a magnificent stallion, his coat as dark as a midnight sky and his muscles rippling beneath his skin. His long, black mane snapped like a whip in the biting wind.
